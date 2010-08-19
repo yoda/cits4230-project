@@ -1,0 +1,2 @@
+rvm 1.9.2-p0
+echo 'Using: ' `which ruby`
