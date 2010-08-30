@@ -15,20 +15,20 @@ Rails: 2.3.8
 Ruby: 1.8.7+
 
 --------
-Concept:
+#### Concept:
 --------
 
 Reddit.com style news aggregation clone specifically for ruby community related news. Similar perhaps to stackoverflow.
 
 ------------
-Differences:
+#### Differences:
 ------------
 
 
 Realtime chat on aggregated or voted up news topics.
 
 --------------------
-Stage I Requirement:
+#### Stage I Requirement:
 --------------------
 
 This part of the project is worth 10% of the total Unit marks and will be assessed against the following criteria:
