@@ -11,8 +11,8 @@ compile '/style/*/' do
 end
 
 compile '*' do
-  filter :erb
-  layout 'default'
+  filter :haml
+  layout 'rubyocracy'
 end
 
 ### Routing rules
@@ -33,4 +33,4 @@ end
 
 ### Layout rules
 
-layout '*', :erb
+layout '*', :haml

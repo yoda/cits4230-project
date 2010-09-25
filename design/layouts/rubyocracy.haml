@@ -1,0 +1,12 @@
+!!! 1.1
+%html{:xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{ :content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type" }
+    %title== #{@item[:title]} | Rubyocracy
+    %link{:rel => "stylesheet", :type => "text/css", :media => "screen", :href => "/style/rubyocracy.css"}
+  %body
+  
+    #outer-container
+      = render '_header'
+      #content= yield
+      = render '_footer'
