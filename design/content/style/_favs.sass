@@ -1,0 +1,35 @@
+@import "base"
+
+.favourite-listing
+  margin: 0 0 1em
+  
+  h3
+    font-size: 1.35em
+    color: #000
+    font-weight: bold
+    margin: 0 0 0.5em
+    
+  ul li
+    display: block
+    margin: 0.5em 0
+    padding: 0.5em
+    background: #FCFCFC
+    border: 0.1em solid #DDD
+    
+    p.favourite-details
+      float: left
+      color: #555
+      a
+        +link-colors(#222, #996C51)
+        font-weight: bold
+    p.favourite-meta
+      float: right
+      font-weight: bold
+      font-size: 0.8em
+      
+    span.favourite-surging, span.favourite-up-votes
+      color: #196038
+      
+    span.favourite-down-votes
+      color: #B70202
+      padding: 0 0 0 1em

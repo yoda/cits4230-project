@@ -1,0 +1,39 @@
+%h2= item[:title]
+
+%p#header-summary
+  Favourites are our way of letting you track the best of the best. When you favourite a post,
+  it'll automatically be shown here, making it easy to find in the future. Favourites also makes it
+  possible for us to automatically collate best of the best lists.
+  
+#hot-favourites.favourite-listing
+  %h3 Currently Surging Favourites
+  %ul
+    - 1.upto(3) do |i|
+      %li.favourite
+        %p.favourite-details
+          = link_to 'A Sample Blog Post Title', './story.html', :class => 'favourite-post-name'
+          by
+          = pending_link 'Some Author', '#', :class => 'favourite-post-author'
+        %p.favourite-meta
+          %span.favourite-surging
+            %span.count== &uarr; #{1 + rand(10)}
+            in last
+            == #{1 + rand(6)} hrs.
+        .clearfix
+#all-favourites.favourite-listing
+  %h3 All of your Favourites
+  %ul
+    - 1.upto(10) do |i|
+      %li.favourite
+        %p.favourite-details
+          = link_to 'A Sample Blog Post Title', './story.html', :class => 'favourite-post-name'
+          by
+          = pending_link 'Some Author', '#', :class => 'favourite-post-author'
+        %p.favourite-meta
+          %span.favourite-up-votes== &uarr; #{2 + rand(10)}
+          %span.favourite-down-votes== &darr; #{1 + rand(10)}
+        .clearfix
+  
+  #pagination
+    = pending_link "&laquo; Older Posts", '#',  :class => 'older-posts'
+    = pending_link "Newer Posts &raquo;", '#',  :class => 'newer-posts'

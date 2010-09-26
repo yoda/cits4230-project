@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns='http://www.w3.org/1999/xhtml'>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <title>A Sample Blog Post | Rubyocracy</title>
+    <link href='./style/rubyocracy.css' media='screen' rel='stylesheet' type='text/css' />
+    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js' type='text/javascript'></script>
+    <script src='./javascripts/rubyocracy.js' type='text/javascript'></script>
+  </head>
+  <body>
+    <div id='header'>
+      <div id='inner-header'>
+        <h1><a href="./index.html">Rubyocracy</a></h1>
+        <ul id='header-primary-navigation'>
+          <li><a href="./profile.html">Your Profile</a></li>
+          <li><a onclick="alert('This page is not yet implemented.'); return false;" href="#">Sign Out</a></li>
+        </ul>
+        <div class='clearfix'></div>
+      </div>
+      <ul id='header-secondary-navigation'>
+        <li><a href="./index.html">Latest Posts</a></li>
+        <li><a onclick="alert('This page is not yet implemented.'); return false;" href="#">Trending Posts</a></li>
+        <li><a href="./favourites.html">Your Favourite Posts</a></li>
+        <li><a href="./submit.html">Submit a Blog</a></li>
+      </ul>
+    </div>
+    <div id='container'>
+      <div id='content'>
+        <h2>A Sample Blog Post</h2>
+        <div id='story'>
+          <div class='story-inner'>
+            <div class='story-preview'>
+              <a href='#' onclick="alert('On the real site, this will go to the blog post.'); return false;">
+                <img alt='Some Simple Blog Title Here' src='./images/site.png' />
+              </a>
+            </div>
+            <div class='story-nested-details'>
+              <div class='story-summary'>
+                <p>Fusce sodales neque ut metus consequat sed varius mauris facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus venenatis auctor bibendum. Donec venenatis convallis rutrum. Nam laoreet, ipsum vitae consequat dapibus, leo justo rutrum eros, ut viverra lacus velit sit amet turpis. Vestibulum libero augue, pulvinar sed tempor at, imperdiet eget felis. Ut dui velit, pellentesque ac bibendum ut, auctor a risus. Vivamus mi erat, posuere quis lobortis hendrerit, tempor ac erat.</p>
+              </div>
+              <div class='story-meta-container'>
+                <p class='story-meta'>
+                  Posted on
+                  <a class="story-origin-link" href="#">Some Users Blog</a>
+                  about <span class='story-posted-at'>10 hours ago</span>.
+                </p>
+                <p class='story-favourites'>
+                  Favourited by
+                  <span class='story-faved-count'>3 people</span>
+                  -
+                  <a class="story-favourite" href="./favourites.html">Favourite Story</a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <br class='clear' />
+          <p id='story-meta'>
+            <a class="story-meta-comments" href="#comments">This story has 12 comments</a>
+            -
+            <span class='story-vote'>
+              <a class="story-up-vote" onclick="alert('This page is not yet implemented.'); return false;" href="#">I Liked it</a>
+              or
+              <a class="story-down-vote" onclick="alert('This page is not yet implemented.'); return false;" href="#">I didn't like it</a>
+            </span>
+          </p>
+          <div class='clearfix'></div>
+        </div>
+        <a id='comments'></a>
+        <div id='story-comments'>
+          <h4>Comments on This Story</h4>
+          <ul id='comment-listing'>
+            <li class='comment'>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin posuere arcu non erat tincidunt sed molestie turpis accumsan. Proin id ultricies ligula. Vivamus nec enim risus, a pretium mi. Nulla at cursus eros. Fusce congue mauris quis augue rhoncus et tempus enim hendrerit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi ullamcorper tempor posuere. Proin molestie faucibus nibh ac auctor. Nulla ut dui in eros sodales rhoncus.</p>
+              <div class='comment-metadata'>
+                Comment by
+                <a class="comment-author" onclick="alert('This page is not yet implemented.'); return false;" href="#">Random User #1</a>
+                about
+                <span class='comment-posted-at'>2 minutes ago</span>
+              </div>
+            </li>
+            <li class='comment'>
+              <p>Maecenas euismod dui sit amet ante ultricies id posuere urna pellentesque. Sed lectus purus, laoreet nec lobortis a, tempus a arcu. Donec convallis fringilla lectus. Maecenas et arcu lorem, viverra varius massa. Fusce placerat massa varius risus tempor sed dapibus odio egestas. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque fermentum accumsan leo, mattis varius neque tempus ut.</p>
+              <div class='comment-metadata'>
+                Comment by
+                <a class="comment-author" onclick="alert('This page is not yet implemented.'); return false;" href="#">Random User #2</a>
+                about
+                <span class='comment-posted-at'>4 minutes ago</span>
+              </div>
+            </li>
+            <li class='comment'>
+              <p>Aliquam pretium vulputate sem sit amet fringilla. Nulla auctor sem ut libero viverra imperdiet. Pellentesque ultricies metus sed risus ullamcorper tempus. Integer blandit, ante eu tempus luctus, neque mi suscipit sapien, vitae volutpat tellus augue a libero. Curabitur ut nisl leo. Aenean ullamcorper consectetur consequat. Fusce non sollicitudin tellus. Quisque facilisis faucibus arcu, nec dignissim sapien laoreet commodo. Nulla nibh urna, pellentesque vel venenatis non, gravida ac nisi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+              <div class='comment-metadata'>
+                Comment by
+                <a class="comment-author" onclick="alert('This page is not yet implemented.'); return false;" href="#">Random User #3</a>
+                about
+                <span class='comment-posted-at'>6 minutes ago</span>
+              </div>
+            </li>
+            <li class='comment'>
+              <p>Fusce sodales neque ut metus consequat sed varius mauris facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus venenatis auctor bibendum. Donec venenatis convallis rutrum. Nam laoreet, ipsum vitae consequat dapibus, leo justo rutrum eros, ut viverra lacus velit sit amet turpis. Vestibulum libero augue, pulvinar sed tempor at, imperdiet eget felis. Ut dui velit, pellentesque ac bibendum ut, auctor a risus. Vivamus mi erat, posuere quis lobortis hendrerit, tempor ac erat.</p>
+              <div class='comment-metadata'>
+                Comment by
+                <a class="comment-author" onclick="alert('This page is not yet implemented.'); return false;" href="#">Random User #4</a>
+                about
+                <span class='comment-posted-at'>8 minutes ago</span>
+              </div>
+            </li>
+            <li class='comment'>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin posuere arcu non erat tincidunt sed molestie turpis accumsan. Proin id ultricies ligula. Vivamus nec enim risus, a pretium mi. Nulla at cursus eros. Fusce congue mauris quis augue rhoncus et tempus enim hendrerit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi ullamcorper tempor posuere. Proin molestie faucibus nibh ac auctor. Nulla ut dui in eros sodales rhoncus.</p>
+              <div class='comment-metadata'>
+                Comment by
+                <a class="comment-author" onclick="alert('This page is not yet implemented.'); return false;" href="#">Random User #5</a>
+                about
+                <span class='comment-posted-at'>10 minutes ago</span>
+              </div>
+            </li>
+          </ul>
+          <form action='#' id='story-add-comment' method='get'>
+            <fieldset>
+              <legend>Add a Comment</legend>
+              <div class='row string'>
+                <label class='field-name'>Your Comment:</label>
+                <textarea cols='70' name='comment[contents]' rows='5'></textarea>
+                <div class='clearfix'></div>
+                <p class='field-errors'></p>
+              </div>
+            </fieldset>
+            <fieldset class='buttons'>
+              <input id='submit-comment-button' type='submit' value='Add this Comment' />
+            </fieldset>
+          </form>
+        </div>
+      </div>
+      <div id='footer'>
+        <ul id='footer-nav'>
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./profile.html">Your Profile</a></li>
+          <li><a href="./favourites.html">Your Favourites</a></li>
+          <li><a href="./story.html">Example Post</a></li>
+          <li><a href="./submit.html">Submit a Blog</a></li>
+        </ul>
+        <p id='footer-summary'>
+          Rubyocracy - A project of CITS4230 Group F. All Rights Reserved. Site copyright 2010 onwards.
+          <br />
+          <a onclick="alert('This page is not yet implemented.'); return false;" href="#">Contact Us</a>
+          if you have any questions.
+          <br />
+          <a href='http://jigsaw.w3.org/css-validator/check/referer'>
+            <img alt="This document's stylesheet is valid CSS 2.1" src='http://jigsaw.w3.org/css-validator/images/vcss' />
+          </a>
+          <a href='http://validator.w3.org/check?uri=referer'>
+            <img alt="This document's stylesheet is valid XHTML 1.1" src='http://www.w3.org/Icons/valid-xhtml11' />
+          </a>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

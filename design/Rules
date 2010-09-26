@@ -28,7 +28,11 @@ route '/style/*/' do
 end
 
 route '*' do
-  item.identifier + 'index.html'
+  if item.identifier == "/"
+    '/index.html'
+  else
+    item.identifier.gsub(/\/$/, '.html')
+  end
 end
 
 ### Layout rules

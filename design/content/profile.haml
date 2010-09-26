@@ -1,0 +1,52 @@
+%h2= item[:title]
+
+#user-profile
+
+  %p#user-summary
+    Member of Rubyocracy for <span class='user-member-for'>1 month, 3 days</span>.
+      
+  #user-statistics
+    %ul
+      %li.stat-respect
+        .inner
+          %span.name Respect
+          %span.value 1000
+      %li.stat-favourites
+        .inner
+          %span.name Favourites
+          %span.value 23
+      %li.stat-likes
+        .inner
+          %span.name Likes
+          %span.value 30
+      %li.stat-dislikes
+        .inner
+          %span.name Dislikes
+          %span.value 23
+    .clearfix
+  
+  #user-information
+
+    %dl#user-links
+      %dt GitHub Account:
+      %dd= link_to "Sutto on GitHub", "http://github.com/Sutto"
+      %dt Blog URL:
+      %dd= link_to "Ninja's on a Penny Farthing", "http://blog.ninjahideout.com/"
+      %dt Stack Overflow:
+      %dd.last-link= pending_link "Sutto"
+  
+  #user-items
+    .panel
+      %h4 Liked Items
+      %ul
+        - 10.times do |i|
+          %li= pending_link quote.split(".").first
+    .panel
+      %h4 Favourited Items
+      %ul
+        - 10.times do |i|
+          %li= pending_link quote.split(".").first
+          
+    .clearfix
+
+  .clearfix

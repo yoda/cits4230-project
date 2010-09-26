@@ -7,75 +7,86 @@ p#rubyocracy-introduction
   text-align: center
   line-height: 1.8em
 
-ul.stories
-  li.story
-    margin: 1em 0 3em
-    display: block
-    +clearfix
-    .story-preview
-      float: left
-      width: 180px
-      img
-        border: 0.2em solid #777
-        background: #FFF
-    .story-nested-details
-      float: left
-      width: 780px
-    h3
-      font-size: 1.5em
-      font-weight: bold
-      float: left
-      margin: 0 0 0.5em
-      a.story-title
-        +link-colors(#222, #996C51)
-    &:hover a.story-comments
-      display: inline
-    a.story-comments
-      float: left
-      font-weight: bold
-      font-size: 0.8em
-      padding: 0.5em 0 0 1.5em
-      display: none
-      +link-colors(#57637E, #996C51)
-    .story-vote
-      float: right
-      color: #555
-      margin-top: 0.75em
-      padding: 0em 0.5em
-      font-size: 0.9em
-      a
-        font-weight: bold
-      a.story-up-vote
-        color: #196038
-      a.story-down-vote
-        color: #B70202
-    .story-summary
-      clear: both
-      margin: 0
-      font-size: 1em
-      line-height: 1.8em
-      text-align: justify
-      color: #333
-      
-    .story-meta-container
-      +clearfix
-      font-size: 0.9em
-      color: #777
-      margin-top: 0.5em
-      .story-meta
-        float: left
-        a.story-origin-link
-          font-weight: bold
-          color: #444
-        span.story-posted-at
-          color: #666
-      .story-favourites
-        float: right
-        a.story-favourite
-          color: #9E4D4D
-          font-weight: bold
-        span.story-faved-count
-          color: #CB6363
+li.story, #story
+  margin: 1em 0 3em
+  display: block
   
-    &:last-child
-      margin-bottom: 0
+  p#story-meta
+    clear: both
+    text-align: center
+    margin: 1em 0 0 !important
+    display: block
+    padding: 0.3em 0
+    border-top: 0.1em solid #DDD
+    border-bottom: 0.1em solid #DDD
+    a.story-meta-comments
+      +link-colors(#333, #996C51)
+      font-weight: bold
+  
+  .story-preview
+    float: left
+    width: 180px
+    img
+      border: 0.2em solid #777
+      background: #FFF
+  .story-nested-details
+    float: left
+    width: 780px
+  h3
+    font-size: 1.5em
+    font-weight: bold
+    float: left
+    margin: 0 0 0.5em
+    a.story-title
+      +link-colors(#222, #996C51)
+  &:hover a.story-comments
+    display: inline
+  a.story-comments
+    float: left
+    font-weight: bold
+    font-size: 0.8em
+    padding: 0.5em 0 0 1.5em
+    display: none
+    +link-colors(#57637E, #996C51)
+  div.story-vote
+    float: right
+    margin-top: 0.75em
+    padding: 0em 0.5em
+    font-size: 0.9em
+  .story-vote
+    color: #555
+    a
+      font-weight: bold
+    a.story-up-vote
+      color: #196038
+    a.story-down-vote
+      color: #B70202
+  .story-summary
+    clear: both
+    margin: 0
+    font-size: 1em
+    line-height: 1.8em
+    text-align: justify
+    color: #333
+    
+  .story-meta-container
+    font-size: 0.9em
+    color: #777
+    margin-top: 0.5em
+    .story-meta
+      float: left
+      a.story-origin-link
+        font-weight: bold
+        color: #444
+      span.story-posted-at
+        color: #666
+    .story-favourites
+      float: right
+      a.story-favourite
+        color: #9E4D4D
+        font-weight: bold
+      span.story-faved-count
+        color: #CB6363
+
+  &.last
+    margin-bottom: 0

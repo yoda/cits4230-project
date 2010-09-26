@@ -3,57 +3,67 @@
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
     <title>Submit a Blog | Rubyocracy</title>
-    <link href='/style/rubyocracy.css' media='screen' rel='stylesheet' type='text/css' />
+    <link href='./style/rubyocracy.css' media='screen' rel='stylesheet' type='text/css' />
     <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js' type='text/javascript'></script>
-    <script src='/javascripts/rubyocracy.js' type='text/javascript'></script>
+    <script src='./javascripts/rubyocracy.js' type='text/javascript'></script>
   </head>
   <body>
     <div id='header'>
       <div id='inner-header'>
-        <h1><a href="/">Rubyocracy</a></h1>
+        <h1><a href="./index.html">Rubyocracy</a></h1>
         <ul id='header-primary-navigation'>
-          <li><a href="#">Your Profile</a></li>
+          <li><a href="./profile.html">Your Profile</a></li>
           <li><a onclick="alert('This page is not yet implemented.'); return false;" href="#">Sign Out</a></li>
         </ul>
+        <div class='clearfix'></div>
       </div>
       <ul id='header-secondary-navigation'>
-        <li><a href="#">Newest Posts</a></li>
+        <li><a href="./index.html">Latest Posts</a></li>
         <li><a onclick="alert('This page is not yet implemented.'); return false;" href="#">Trending Posts</a></li>
-        <li><a href="#">Your Favourite Posts</a></li>
-        <li><a href="#">Submit a Blog</a></li>
+        <li><a href="./favourites.html">Your Favourite Posts</a></li>
+        <li><a href="./submit.html">Submit a Blog</a></li>
       </ul>
     </div>
     <div id='container'>
       <div id='content'>
+        <h2>Submit a Blog to Rubyocracy</h2>
         <p id='header-summary'>
           Submitting a blog means that if the author has a subscribeable news
           feed available, we'll automatically pull in posts when they're published.
           For added geek cred, if the blog is hooked up to a pubsub hub we'll index
           the posts in real time.
         </p>
-        <form action='/submit' id='submit-blog' method='get'>
+        <form action='./submit.html' id='submit-blog' method='get'>
           <fieldset>
-            <legend>Tell us about the blog.</legend>
+            <legend>Tell us about the blog</legend>
             <div class='row string'>
               <label class='field-name'>Blog Author:</label>
               <input class='text' name='blog[author]' type='text' />
+              <div class='clearfix'></div>
               <label class='extended'>
                 <input name='blog[self_authored]' type='checkbox' value='1' />
                 I'm the primary author of this blog.
               </label>
+              <div class='clearfix'></div>
               <p class='field-errors'>The blog author must be filled in.</p>
             </div>
             <div class='row string'>
               <label class='field-name'>Blog URL:</label>
               <input class='text' name='blog[url]' type='text' />
+              <div class='clearfix'></div>
               <p class='field-errors'></p>
             </div>
           </fieldset>
-          <fieldset>
+          <fieldset id='example-blog-preview'>
             <legend>Example Blog Content</legend>
+            <div id='blog-preview-loading'>
+              <div class='sample-content'>
+                <p id='inner-blog-preview'>Add a url to load this preview</p>
+              </div>
+            </div>
             <div id='blog-preview'>
               <h3>Sample Blog Post Title</h3>
-              <div id='sample-content'>
+              <div class='sample-content'>
                 <p>Maecenas euismod dui sit amet ante ultricies id posuere urna pellentesque. Sed lectus purus, laoreet nec lobortis a, tempus a arcu. Donec convallis fringilla lectus. Maecenas et arcu lorem, viverra varius massa. Fusce placerat massa varius risus tempor sed dapibus odio egestas. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque fermentum accumsan leo, mattis varius neque tempus ut.</p>
               </div>
             </div>
@@ -65,13 +75,24 @@
       </div>
       <div id='footer'>
         <ul id='footer-nav'>
-          <li><a href="/">Home</a></li>
-          <li><a href="/">Your Profile</a></li>
-          <li><a href="/">Example Post</a></li>
-          <li><a href="/">Submit a Blog</a></li>
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./profile.html">Your Profile</a></li>
+          <li><a href="./favourites.html">Your Favourites</a></li>
+          <li><a href="./story.html">Example Post</a></li>
+          <li><a href="./submit.html">Submit a Blog</a></li>
         </ul>
         <p id='footer-summary'>
-          Rubyocracy - A project of CITS4230 Group F. Site copyright 2010 onwards.
+          Rubyocracy - A project of CITS4230 Group F. All Rights Reserved. Site copyright 2010 onwards.
+          <br />
+          <a onclick="alert('This page is not yet implemented.'); return false;" href="#">Contact Us</a>
+          if you have any questions.
+          <br />
+          <a href='http://jigsaw.w3.org/css-validator/check/referer'>
+            <img alt="This document's stylesheet is valid CSS 2.1" src='http://jigsaw.w3.org/css-validator/images/vcss' />
+          </a>
+          <a href='http://validator.w3.org/check?uri=referer'>
+            <img alt="This document's stylesheet is valid XHTML 1.1" src='http://www.w3.org/Icons/valid-xhtml11' />
+          </a>
         </p>
       </div>
     </div>

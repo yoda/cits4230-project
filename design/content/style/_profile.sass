@@ -1,0 +1,72 @@
+@import "base"
+  
+p#user-summary
+  margin: 0 0 1.5em
+  color: #444
+  text-align: center
+  padding: 0
+  font-size: 0.9em
+
+#user-information
+  text-align: center
+  padding: 0 0 2em
+  dl#user-links
+    line-height: 1.5em
+    dt, dd
+      display: inline
+    dd
+      margin-right: 1.5em
+    dd.last
+      margin-right: 0
+    dt
+      font-weight: bold
+
+#user-statistics
+  clear: both
+  padding: 1em 0
+  clear: both
+  ul
+    display: block
+    text-align: center
+    padding-left: 110px
+    li
+      display: inline
+      .inner
+        float: left
+        width: 150px
+        margin: 0.5em 10px
+        padding: 10px 5px
+        background: #FDFDFD
+        border: 1px solid #DDD
+        span
+          display: block
+          &.name
+            color: #888
+            font-size: 1em
+            padding-bottom: 0.5em
+          &.value
+            color: #000
+            font-size: 1.5em
+            font-weight: bold
+  
+#user-items
+  .panel
+    width: 480px
+    float: left
+    font-size: 1.1em
+    h4
+      font-weight: bold
+      margin: 0 0 0.5em
+      font-size: 1.2em
+      text-align: center
+    ul
+      margin: 0.5em
+      li
+        background: #FDFDFD
+        border: 0.1em solid #DDD
+        line-height: 1.5em
+        text-align: center
+        padding: 0.5em 0.5em
+        margin: 0.5em 0
+        font-size: 0.9em
+        font-weight: bold

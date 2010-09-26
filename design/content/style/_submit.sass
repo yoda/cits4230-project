@@ -5,7 +5,6 @@ p#header-summary
   color: #444
   line-height: 1.5em
   margin-bottom: 1em
-  
 form
 
   fieldset
@@ -15,22 +14,21 @@ form
       color: #000
       font-size: 1.2em
       padding-bottom: 1em
-    
     .row
       margin: 0.75em 0
-      +clearfix
       label.field-name
         font-weight: bold
         color: black
         display: block
         width: 200px
-        +inline-block
+        float: left
       label.extended
         clear: both
-        display: inline-block
-        margin: 0.5em 0 0 200px
+        display: block
+        padding: 0.5em 0 0 200px
         color: #000
-      &.string input.text
+      &.string input.text, &.string textarea
+        float: left
         font-size: 1em
         width: 740px
     
@@ -39,17 +37,18 @@ form
       color: #A10101
       line-height: 1.8em
       font-size: 0.9em
-      padding-left: 200px
-      margin: 0.5 0 1em
+      padding-left: 205px
+      margin: 0.5em 0 1em
       display: none
 
 fieldset.buttons
   text-align: center
 
-#blog-preview
+#blog-preview, #blog-preview-loading
   border: 0.1em solid #DDD
   background: #FDFDFD
   padding: 1em
+  display: none
   
   h3
     font-weight: bold

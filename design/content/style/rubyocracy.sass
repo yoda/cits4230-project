@@ -3,6 +3,9 @@
 
 br.clear
   clear: both
+  
+.clearfix
+  clear: both
 
 body
   background-color: #FFF
@@ -23,20 +26,19 @@ a:link
 
 #header
   width: 100%
-  background: #7B1E2E url('/images/top-header-bg.jpg') top center repeat-x
+  background: #7B1E2E url('../images/top-header-bg.jpg') top center repeat-x
   color: #FFF
   text-align: center
   #inner-header
     width: 960px
     margin: 0 auto
     padding: 0
-    +clearfix
     h1
       float: left
       a
         display: block
         text-indent: -1000px
-        background: url('/images/logo.png') center center no-repeat
+        background: url('../images/logo.png') center center no-repeat
         width: 180px
         height: 50px
     ul#header-primary-navigation
@@ -55,7 +57,7 @@ a:link
         +link-colors(#FFF, #EBCAAA)
   ul#header-secondary-navigation
     padding: 0.4em 0 0.5em
-    background: #5D1617 url('/images/middle-header-bg.jpg') center center repeat-x
+    background: #5D1617 url('../images/middle-header-bg.jpg') center center repeat-x
     border-top: 0.15em solid #4c1112
     border-bottom: 0.15em solid #4c1112
     li
@@ -65,8 +67,21 @@ a:link
 a
   +link-colors(#344D99, #994250)
 
+a:visited
+  text-decoration: none !important
+
+#content
+  h2
+    font-weight: bold
+    font-size: 1.8em
+    text-align: center
+    margin-bottom: 0.5em
+
 @import "frontpage"
 @import "submit"
+@import "story"
+@import "profile"
+@import "favs"
   
 #pagination
   text-align: center
