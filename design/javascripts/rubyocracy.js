@@ -15,6 +15,7 @@ var Rubyocracy = {};
   r.clearErrors       = function(element) {
     element.innerHTML = "";
   };
+  
   r.errorContainerFor = function(element) {
     var parent = element.parentElement;
     var errorContainer = null;
@@ -33,14 +34,17 @@ var Rubyocracy = {};
     }
     return errorContainer;
   };
+  
   r.addValidatorFor   = function(name, validator) {
     if(!r.validators[name])
       r.validators[name] = [];
     r.validators[name].push(validator);
   };
+  
   r.validatorsFor     = function(name) {
     return r.validators[name] || [];
   };
+  
   r.validate          = function(name) {
     var field = r.byName(name);
     if(!field) return true;
@@ -69,12 +73,13 @@ var Rubyocracy = {};
         valid = valid && r.validate(key);
       }
     }
+    return valid;
   };
   
   r.setupValidators = function() {
-    var forms = document.getElementsByName("form");
+    var forms = document.getElementsByTagName("form");
     for(var i = 0; i < forms.length; i++) {
-      $(forms[i]).submit(function() {
+      $(forms[i]).submit(function(e) {
         return r.validateAll();
       })
     }
