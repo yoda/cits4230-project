@@ -1,0 +1,59 @@
+@import "base"
+
+p#header-summary
+  font-size: 1.2em
+  color: #444
+  line-height: 1.5em
+  margin-bottom: 1em
+  
+form
+
+  fieldset
+    margin: 1em 0 2em
+    legend
+      font-weight: bold
+      color: #000
+      font-size: 1.2em
+      padding-bottom: 1em
+    
+    .row
+      margin: 0.75em 0
+      +clearfix
+      label.field-name
+        font-weight: bold
+        color: black
+        display: block
+        width: 200px
+        +inline-block
+      label.extended
+        clear: both
+        display: inline-block
+        margin: 0.5em 0 0 200px
+        color: #000
+      &.string input.text
+        font-size: 1em
+        width: 740px
+    
+    p.field-errors
+      clear: both
+      color: #A10101
+      line-height: 1.8em
+      font-size: 0.9em
+      padding-left: 200px
+      margin: 0.5 0 1em
+      display: none
+
+fieldset.buttons
+  text-align: center
+
+#blog-preview
+  border: 0.1em solid #DDD
+  background: #FDFDFD
+  padding: 1em
+  
+  h3
+    font-weight: bold
+    color: black
+  
+  p
+    line-height: 1.8em

@@ -1,0 +1,99 @@
+@import "compass/reset"
+@import "base"
+
+br.clear
+  clear: both
+
+body
+  background-color: #FFF
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif
+
+h1, h2, h3, h4, h5, h6
+  font-family: Helvetica, "Helvetica Neue", Arial, sans-serif
+  
+p
+  line-height: 1.5em
+  
+a:link
+  text-decoration: none
+  
+#container
+  width: 960px
+  margin: 2em auto 1em
+
+#header
+  width: 100%
+  background: #7B1E2E url('/images/top-header-bg.jpg') top center repeat-x
+  color: #FFF
+  text-align: center
+  #inner-header
+    width: 960px
+    margin: 0 auto
+    padding: 0
+    +clearfix
+    h1
+      float: left
+      a
+        display: block
+        text-indent: -1000px
+        background: url('/images/logo.png') center center no-repeat
+        width: 180px
+        height: 50px
+    ul#header-primary-navigation
+      float: right
+      padding: 1em
+      li
+        font-size: 0.75em
+        margin: 0 0 0 2em
+  ul#header-secondary-navigation, ul#header-primary-navigation
+    display: block
+    list-style: none
+    li
+      display: inline
+      font-weight: bold
+      a
+        +link-colors(#FFF, #EBCAAA)
+  ul#header-secondary-navigation
+    padding: 0.4em 0 0.5em
+    background: #5D1617 url('/images/middle-header-bg.jpg') center center repeat-x
+    border-top: 0.15em solid #4c1112
+    border-bottom: 0.15em solid #4c1112
+    li
+      margin: 0 1em
+      font-size: 0.8em
+
+a
+  +link-colors(#344D99, #994250)
+
+@import "frontpage"
+@import "submit"
+  
+#pagination
+  text-align: center
+  font-size: 0.9em
+  padding: 1em 0 0
+  a
+    margin: 0 0.5em
+    font-weight: bold
+    +link-colors(#666, #333)
+
+#footer
+  text-align: center
+  font-size: 0.8em
+  color: #555
+  line-height: 1.8em
+  margin-top: 1.5em
+  ul#footer-nav
+    margin: 0
+    padding: 0
+    list-style: none
+    li
+      display: inline
+      margin: 0 1em
+      font-weight: bold
+      a
+        +link-colors(#555, #333)
+  p#footer-summary
+    border-top: 0.1em solid #DDD
+    padding-top: 0.5em
+    margin-top: 0.5em

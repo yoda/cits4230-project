@@ -1,0 +1,25 @@
+%li.story
+  .story-inner
+    %h3
+      = pending_link 'Some Simple Blog Title Here', '#', :class => 'story-title'
+    = link_to '12 comments', '#', :class => 'story-comments'
+    .story-vote
+      = pending_link "I Liked it", "#", :class => 'story-up-vote'
+      or
+      = pending_link "I didn't like it", "#", :class => 'story-down-vote'
+    %br.clear
+    .story-preview
+      %img{:src => screenshot("http://blog.ninjahideout.com/"), :alt => 'Some Simple Blog Title Here'}
+    .story-nested-details
+      .story-summary
+        %p= quote
+      .story-meta-container
+        %p.story-meta
+          Posted on
+          = link_to "Some Users Blog", "#", :class => 'story-origin-link'
+          about <span class='story-posted-at'>10 hours ago</span>.
+        %p.story-favourites
+          Favourited by
+          %span.story-faved-count 3 people
+          \-
+          = link_to "Favourite Story", "#", :class => 'story-favourite'

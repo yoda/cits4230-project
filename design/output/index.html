@@ -4,93 +4,215 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
     <title>Home | Rubyocracy</title>
     <link href='/style/rubyocracy.css' media='screen' rel='stylesheet' type='text/css' />
+    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js' type='text/javascript'></script>
+    <script src='/javascripts/rubyocracy.js' type='text/javascript'></script>
   </head>
   <body>
-    <div id='outer-container'>
-      <div id='header'>
-        <div id='inner-header'>
-          <h1><a href="/">Rubyocracy</a></h1>
-          <ul id='header-primary-navigation'>
-            <li><a href="#">Your Profile</a></li>
-            <li><a onclick="alert('This page is not yet implemented.'); return false;" href="#">Sign Out</a></li>
-          </ul>
-        </div>
-        <ul id='header-secondary-navigation'>
-          <li><a href="#">Newest Posts</a></li>
-          <li><a onclick="alert('This page is not yet implemented.'); return false;" href="#">Trending Posts</a></li>
-          <li><a href="#">Your Favourite Posts</a></li>
-          <li><a href="#">Submit a Post</a></li>
+    <div id='header'>
+      <div id='inner-header'>
+        <h1><a href="/">Rubyocracy</a></h1>
+        <ul id='header-primary-navigation'>
+          <li><a href="#">Your Profile</a></li>
+          <li><a onclick="alert('This page is not yet implemented.'); return false;" href="#">Sign Out</a></li>
         </ul>
       </div>
+      <ul id='header-secondary-navigation'>
+        <li><a href="#">Newest Posts</a></li>
+        <li><a onclick="alert('This page is not yet implemented.'); return false;" href="#">Trending Posts</a></li>
+        <li><a href="#">Your Favourite Posts</a></li>
+        <li><a href="#">Submit a Blog</a></li>
+      </ul>
+    </div>
+    <div id='container'>
       <div id='content'>
         <p id='rubyocracy-introduction'>
           Rubyocracy is a community powered news site for Ruby developers. Think of it like a blog aggregator
           but with added bonuses like community voting and badges.
           <a href='#'>Submit your blog</a>
           to get a chance to build your reputation as a respected ruby blogger among fellow rubyists.
+          <a id="hide-introduction" href="#">(hide)</a>
         </p>
-        <ul id='top-stories'>
+        <ul class='stories' id='top-stories'>
           <li class='story'>
-            <h3><a href="#">Some Simple Blog Title Here</a></h3>
-            <div class='story-summary'>
-              <p>Stop! Don't shoot fire stick in space canoe! Cause explosive decompression! Fry! Quit doing the right thing, you jerk! No, just a regular mistake. We can't compete with Mom! Her company is big and evil! Ours is small and neutral!</p>
+            <div class='story-inner'>
+              <h3>
+                <a class="story-title" onclick="alert('This page is not yet implemented.'); return false;" href="#">Some Simple Blog Title Here</a>
+              </h3>
+              <a class="story-comments" href="#">12 comments</a>
+              <div class='story-vote'>
+                <a class="story-up-vote" onclick="alert('This page is not yet implemented.'); return false;" href="#">I Liked it</a>
+                or
+                <a class="story-down-vote" onclick="alert('This page is not yet implemented.'); return false;" href="#">I didn't like it</a>
+              </div>
+              <br class='clear' />
+              <div class='story-preview'>
+                <img alt='Some Simple Blog Title Here' src='http://pinkyurl.com/i?url=http://blog.ninjahideout.com/&amp;out-format=png&amp;resize=160&amp;crop=160x140' />
+              </div>
+              <div class='story-nested-details'>
+                <div class='story-summary'>
+                  <p>Maecenas euismod dui sit amet ante ultricies id posuere urna pellentesque. Sed lectus purus, laoreet nec lobortis a, tempus a arcu. Donec convallis fringilla lectus. Maecenas et arcu lorem, viverra varius massa. Fusce placerat massa varius risus tempor sed dapibus odio egestas. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque fermentum accumsan leo, mattis varius neque tempus ut.</p>
+                </div>
+                <div class='story-meta-container'>
+                  <p class='story-meta'>
+                    Posted on
+                    <a class="story-origin-link" href="#">Some Users Blog</a>
+                    about <span class='story-posted-at'>10 hours ago</span>.
+                  </p>
+                  <p class='story-favourites'>
+                    Favourited by
+                    <span class='story-faved-count'>3 people</span>
+                    -
+                    <a class="story-favourite" href="#">Favourite Story</a>
+                  </p>
+                </div>
+              </div>
             </div>
-            <p class='story-liked-by'>
-              This posted has been liked by
-              <a href="#">Bob</a>, <a href="#">Bill</a> and <a href="#">Steve</a>.
-            </p>
-            <dl class='story-metadata'>
-              <dt class='favourites'>Favourites</dt>
-              <dd class='favourites'>3</dd>
-              <dt class='up-votes'>Up Votes</dt>
-              <dd class='up-votes'>12</dd>
-              <dt class='down-votes'>Down Votes</dt>
-              <dd class='down-votes'>3</dd>
-              <dt class='ranking'>Post Ranking</dt>
-              <dd class='ranking'>1</dd>
-            </dl>
           </li>
           <li class='story'>
-            <h3><a href="#">Some Simple Blog Title Here</a></h3>
-            <div class='story-summary'>
-              <p>Stop! Don't shoot fire stick in space canoe! Cause explosive decompression! Fry! Quit doing the right thing, you jerk! No, just a regular mistake. We can't compete with Mom! Her company is big and evil! Ours is small and neutral!</p>
+            <div class='story-inner'>
+              <h3>
+                <a class="story-title" onclick="alert('This page is not yet implemented.'); return false;" href="#">Some Simple Blog Title Here</a>
+              </h3>
+              <a class="story-comments" href="#">12 comments</a>
+              <div class='story-vote'>
+                <a class="story-up-vote" onclick="alert('This page is not yet implemented.'); return false;" href="#">I Liked it</a>
+                or
+                <a class="story-down-vote" onclick="alert('This page is not yet implemented.'); return false;" href="#">I didn't like it</a>
+              </div>
+              <br class='clear' />
+              <div class='story-preview'>
+                <img alt='Some Simple Blog Title Here' src='http://pinkyurl.com/i?url=http://blog.ninjahideout.com/&amp;out-format=png&amp;resize=160&amp;crop=160x140' />
+              </div>
+              <div class='story-nested-details'>
+                <div class='story-summary'>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin posuere arcu non erat tincidunt sed molestie turpis accumsan. Proin id ultricies ligula. Vivamus nec enim risus, a pretium mi. Nulla at cursus eros. Fusce congue mauris quis augue rhoncus et tempus enim hendrerit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi ullamcorper tempor posuere. Proin molestie faucibus nibh ac auctor. Nulla ut dui in eros sodales rhoncus.</p>
+                </div>
+                <div class='story-meta-container'>
+                  <p class='story-meta'>
+                    Posted on
+                    <a class="story-origin-link" href="#">Some Users Blog</a>
+                    about <span class='story-posted-at'>10 hours ago</span>.
+                  </p>
+                  <p class='story-favourites'>
+                    Favourited by
+                    <span class='story-faved-count'>3 people</span>
+                    -
+                    <a class="story-favourite" href="#">Favourite Story</a>
+                  </p>
+                </div>
+              </div>
             </div>
-            <p class='story-liked-by'>
-              This posted has been liked by
-              <a href="#">Bob</a>, <a href="#">Bill</a> and <a href="#">Steve</a>.
-            </p>
-            <dl class='story-metadata'>
-              <dt class='favourites'>Favourites</dt>
-              <dd class='favourites'>3</dd>
-              <dt class='up-votes'>Up Votes</dt>
-              <dd class='up-votes'>12</dd>
-              <dt class='down-votes'>Down Votes</dt>
-              <dd class='down-votes'>3</dd>
-              <dt class='ranking'>Post Ranking</dt>
-              <dd class='ranking'>1</dd>
-            </dl>
           </li>
           <li class='story'>
-            <h3><a href="#">Some Simple Blog Title Here</a></h3>
-            <div class='story-summary'>
-              <p>Stop! Don't shoot fire stick in space canoe! Cause explosive decompression! Fry! Quit doing the right thing, you jerk! No, just a regular mistake. We can't compete with Mom! Her company is big and evil! Ours is small and neutral!</p>
+            <div class='story-inner'>
+              <h3>
+                <a class="story-title" onclick="alert('This page is not yet implemented.'); return false;" href="#">Some Simple Blog Title Here</a>
+              </h3>
+              <a class="story-comments" href="#">12 comments</a>
+              <div class='story-vote'>
+                <a class="story-up-vote" onclick="alert('This page is not yet implemented.'); return false;" href="#">I Liked it</a>
+                or
+                <a class="story-down-vote" onclick="alert('This page is not yet implemented.'); return false;" href="#">I didn't like it</a>
+              </div>
+              <br class='clear' />
+              <div class='story-preview'>
+                <img alt='Some Simple Blog Title Here' src='http://pinkyurl.com/i?url=http://blog.ninjahideout.com/&amp;out-format=png&amp;resize=160&amp;crop=160x140' />
+              </div>
+              <div class='story-nested-details'>
+                <div class='story-summary'>
+                  <p>Fusce sodales neque ut metus consequat sed varius mauris facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus venenatis auctor bibendum. Donec venenatis convallis rutrum. Nam laoreet, ipsum vitae consequat dapibus, leo justo rutrum eros, ut viverra lacus velit sit amet turpis. Vestibulum libero augue, pulvinar sed tempor at, imperdiet eget felis. Ut dui velit, pellentesque ac bibendum ut, auctor a risus. Vivamus mi erat, posuere quis lobortis hendrerit, tempor ac erat.</p>
+                </div>
+                <div class='story-meta-container'>
+                  <p class='story-meta'>
+                    Posted on
+                    <a class="story-origin-link" href="#">Some Users Blog</a>
+                    about <span class='story-posted-at'>10 hours ago</span>.
+                  </p>
+                  <p class='story-favourites'>
+                    Favourited by
+                    <span class='story-faved-count'>3 people</span>
+                    -
+                    <a class="story-favourite" href="#">Favourite Story</a>
+                  </p>
+                </div>
+              </div>
             </div>
-            <p class='story-liked-by'>
-              This posted has been liked by
-              <a href="#">Bob</a>, <a href="#">Bill</a> and <a href="#">Steve</a>.
-            </p>
-            <dl class='story-metadata'>
-              <dt class='favourites'>Favourites</dt>
-              <dd class='favourites'>3</dd>
-              <dt class='up-votes'>Up Votes</dt>
-              <dd class='up-votes'>12</dd>
-              <dt class='down-votes'>Down Votes</dt>
-              <dd class='down-votes'>3</dd>
-              <dt class='ranking'>Post Ranking</dt>
-              <dd class='ranking'>1</dd>
-            </dl>
+          </li>
+          <li class='story'>
+            <div class='story-inner'>
+              <h3>
+                <a class="story-title" onclick="alert('This page is not yet implemented.'); return false;" href="#">Some Simple Blog Title Here</a>
+              </h3>
+              <a class="story-comments" href="#">12 comments</a>
+              <div class='story-vote'>
+                <a class="story-up-vote" onclick="alert('This page is not yet implemented.'); return false;" href="#">I Liked it</a>
+                or
+                <a class="story-down-vote" onclick="alert('This page is not yet implemented.'); return false;" href="#">I didn't like it</a>
+              </div>
+              <br class='clear' />
+              <div class='story-preview'>
+                <img alt='Some Simple Blog Title Here' src='http://pinkyurl.com/i?url=http://blog.ninjahideout.com/&amp;out-format=png&amp;resize=160&amp;crop=160x140' />
+              </div>
+              <div class='story-nested-details'>
+                <div class='story-summary'>
+                  <p>Aliquam pretium vulputate sem sit amet fringilla. Nulla auctor sem ut libero viverra imperdiet. Pellentesque ultricies metus sed risus ullamcorper tempus. Integer blandit, ante eu tempus luctus, neque mi suscipit sapien, vitae volutpat tellus augue a libero. Curabitur ut nisl leo. Aenean ullamcorper consectetur consequat. Fusce non sollicitudin tellus. Quisque facilisis faucibus arcu, nec dignissim sapien laoreet commodo. Nulla nibh urna, pellentesque vel venenatis non, gravida ac nisi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                </div>
+                <div class='story-meta-container'>
+                  <p class='story-meta'>
+                    Posted on
+                    <a class="story-origin-link" href="#">Some Users Blog</a>
+                    about <span class='story-posted-at'>10 hours ago</span>.
+                  </p>
+                  <p class='story-favourites'>
+                    Favourited by
+                    <span class='story-faved-count'>3 people</span>
+                    -
+                    <a class="story-favourite" href="#">Favourite Story</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class='story'>
+            <div class='story-inner'>
+              <h3>
+                <a class="story-title" onclick="alert('This page is not yet implemented.'); return false;" href="#">Some Simple Blog Title Here</a>
+              </h3>
+              <a class="story-comments" href="#">12 comments</a>
+              <div class='story-vote'>
+                <a class="story-up-vote" onclick="alert('This page is not yet implemented.'); return false;" href="#">I Liked it</a>
+                or
+                <a class="story-down-vote" onclick="alert('This page is not yet implemented.'); return false;" href="#">I didn't like it</a>
+              </div>
+              <br class='clear' />
+              <div class='story-preview'>
+                <img alt='Some Simple Blog Title Here' src='http://pinkyurl.com/i?url=http://blog.ninjahideout.com/&amp;out-format=png&amp;resize=160&amp;crop=160x140' />
+              </div>
+              <div class='story-nested-details'>
+                <div class='story-summary'>
+                  <p>Fusce sodales neque ut metus consequat sed varius mauris facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus venenatis auctor bibendum. Donec venenatis convallis rutrum. Nam laoreet, ipsum vitae consequat dapibus, leo justo rutrum eros, ut viverra lacus velit sit amet turpis. Vestibulum libero augue, pulvinar sed tempor at, imperdiet eget felis. Ut dui velit, pellentesque ac bibendum ut, auctor a risus. Vivamus mi erat, posuere quis lobortis hendrerit, tempor ac erat.</p>
+                </div>
+                <div class='story-meta-container'>
+                  <p class='story-meta'>
+                    Posted on
+                    <a class="story-origin-link" href="#">Some Users Blog</a>
+                    about <span class='story-posted-at'>10 hours ago</span>.
+                  </p>
+                  <p class='story-favourites'>
+                    Favourited by
+                    <span class='story-faved-count'>3 people</span>
+                    -
+                    <a class="story-favourite" href="#">Favourite Story</a>
+                  </p>
+                </div>
+              </div>
+            </div>
           </li>
         </ul>
+        <div id='pagination'>
+          <a class="older-posts" onclick="alert('This page is not yet implemented.'); return false;" href="#">&laquo; Older Posts</a>
+          <a class="newer-posts" onclick="alert('This page is not yet implemented.'); return false;" href="#">Newer Posts &raquo;</a>
+        </div>
       </div>
       <div id='footer'>
         <ul id='footer-nav'>

@@ -4,9 +4,10 @@
     %meta{ :content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type" }
     %title== #{@item[:title]} | Rubyocracy
     %link{:rel => "stylesheet", :type => "text/css", :media => "screen", :href => "/style/rubyocracy.css"}
+    %script{:type => "text/javascript", :src => "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"}
+    %script{:type => "text/javascript", :src => "/javascripts/rubyocracy.js"}
   %body
-  
-    #outer-container
-      = render '_header'
+    = render '_header'
+    #container
       #content= yield
       = render '_footer'
