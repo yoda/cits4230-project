@@ -8,7 +8,7 @@ var Rubyocracy = {};
   
   // Helpers for getting elements.
   r.byID   = function(id)   { return document.getElementById(id) };
-  r.byName = function(name) { return document.getElementsByName(name)[0]; } 
+  r.byName = function(name) { return document.getElementsByName(name)[0]; };
   
   
   // Validation items.
@@ -36,8 +36,9 @@ var Rubyocracy = {};
   };
   
   r.addValidatorFor   = function(name, validator) {
-    if(!r.validators[name])
+    if(!r.validators[name]) {
       r.validators[name] = [];
+    }
     r.validators[name].push(validator);
   };
   
@@ -76,6 +77,10 @@ var Rubyocracy = {};
     return valid;
   };
   
+  r.isBlank = function(value) {
+    return value === null || value.toString().trim() === "";
+  }
+  
   r.setupValidators = function() {
     var forms = document.getElementsByTagName("form");
     for(var i = 0; i < forms.length; i++) {
@@ -90,7 +95,7 @@ var Rubyocracy = {};
   // Example use:
   
   r.addValidatorFor("blog[author]", function(field) {
-    if(field.value == "") return "must be filled in";
+    if(r.isBlank(field.value)) return "must be filled in";
   });
   
   // The simple hide / show message on the home page.
