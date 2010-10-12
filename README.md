@@ -28,7 +28,7 @@ Reddit.com style news aggregation clone specifically for ruby community related 
 Realtime chat on aggregated or voted up news topics.
 
 --------------------
-#### Stage I Requirement:
+Stage I Requirement:
 --------------------
 
 This part of the project is worth 10% of the total Unit marks and will be assessed against the following criteria:
@@ -58,7 +58,7 @@ Use relative URLs to ensure portability
 * Use of free images, free website template, free video clips and multimedia files obtained from the Web is permitted, but you will need to provide a separate Reference Page for the site (in addition to the 5+ required pages). Copyright materials must get permission before use.
 
 -----------------
-#### Stage II Requirement:
+Stage II Requirement:
 -----------------
 
 The aim of this project is to build a database driven web application, using Ruby on Rails, HTML, CSS and JavaScript. Each group must pick one of the projects listed below.
@@ -70,7 +70,7 @@ Each project has a baseline worth 85% in which every requirement must be attempt
 It is possible to achieve 10% bonus marks for this project. 2% of the bonus marks will be awarded if the site is built in valid HTML5 and CSS3 (vendor-specific extensions WILL BE allowed). The remaining 8% of the bonus requirements require independent research as they won't be covered in the lecture material.
 
 ---------
-Tools
+#### Tools
 ----------
 
 In addition to using Ruby on Rails, which will be covered in the lectures, it is also recommended that you consider using the popular open source code management (or version control) system Git. While CSSE will be setting up git repositories for you, have a read of the Github help files: http://help.github.com/ as they have a good getting started guide. If have any questions, please ask them on help4230.
@@ -78,7 +78,7 @@ In addition to using Ruby on Rails, which will be covered in the lectures, it is
 If you are unable to meet in person, you can try out some of the online project management tools, such as Basecamp and Campfire.
 
 ---------------
-Deliverables
+### Deliverables
 ---------------
 
 The deliverables for stage II of this project are as follows:
@@ -91,7 +91,7 @@ The deliverables for stage II of this project are as follows:
  - has a README file that describes setup steps.
  - A working set of unit tests.
 
-* Documentation that should consist of:
+Documentation that should consist of:
 
  * Functionality and Design Decisions (max. 2 pages)
 
@@ -104,13 +104,12 @@ The deliverables for stage II of this project are as follows:
 The documentation should be submitted to cssubmit in PDF format. You should check that your document can be opened and read in the Preview application on the Macs. You may also include a copy of the document in your group directory.
 
 ------------------
-A news aggregator
+### A news aggregator
 -------------------
 
 There is so much information out there on the Internet, that aggregation services are can be really helpful disseminating information on a particular topic. Now that many sites syndicate their data via RSS and webservices, building news aggregator is quite simple.
 
-Baseline (85%)
--------------------
+#### Baseline (85%)
 
 * The system should:
 
@@ -118,8 +117,7 @@ Baseline (85%)
  - display the feeds in reverse chronological date; and
  - categorise the feeds
 
-Full Marks (100%)
-----------------------
+#### Full Marks (100%)
 
 * The system should:
 
@@ -127,13 +125,12 @@ Full Marks (100%)
  - add an RSS feed of the cached feeds; and
  - have complete unit and functional/integrations tests (10%)
 
-Bonus marks (110%)
---------------------
+#### Bonus marks (110%)
 
 To get the bonus marks for this project, the system should include indexed full text search, allowing users to search the cached feeds for keywords. The system should also make â€œYou may also likeâ€ suggestions (8%). Building the site using HTML5 and CSS3 is worth an additional 2%.
 
-Specification Updates
-----------------------
+----------------------------
+#### Specification Updates
 
 The project and any changes will be discussed further in the lectures.
 
