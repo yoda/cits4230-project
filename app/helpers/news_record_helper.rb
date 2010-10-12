@@ -1,0 +1,2 @@
+module NewsRecordHelper
+end
