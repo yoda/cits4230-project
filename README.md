@@ -57,3 +57,86 @@ Use relative URLs to ensure portability
 * Due to possible incompability between browsers on rendering CSS positioning, page layout using tables is allowedPage Layout needs to be done by CSS positioning, no layout tables are allowed..
 * Use of free images, free website template, free video clips and multimedia files obtained from the Web is permitted, but you will need to provide a separate Reference Page for the site (in addition to the 5+ required pages). Copyright materials must get permission before use.
 
+-----------------
+#### Stage II Requirement:
+-----------------
+
+The aim of this project is to build a database driven web application, using Ruby on Rails, HTML, CSS and JavaScript. Each group must pick one of the projects listed below.
+
+Each project has a baseline worth 85% in which every requirement must be attempted, a second set of requirements which are recommended worth an additional 5%.
+
+10% of marks will be given code test coverage, measured using the coverage tool: Rcov. Rcov will tell you what percentage of your code base is tested. For every 10% of coverage, you will get 1%. To get the full 10%, you will need 100% test coverage, with all tests passing.
+
+It is possible to achieve 10% bonus marks for this project. 2% of the bonus marks will be awarded if the site is built in valid HTML5 and CSS3 (vendor-specific extensions WILL BE allowed). The remaining 8% of the bonus requirements require independent research as they won't be covered in the lecture material.
+
+---------
+Tools
+----------
+
+In addition to using Ruby on Rails, which will be covered in the lectures, it is also recommended that you consider using the popular open source code management (or version control) system Git. While CSSE will be setting up git repositories for you, have a read of the Github help files: http://help.github.com/ as they have a good getting started guide. If have any questions, please ask them on help4230.
+
+If you are unable to meet in person, you can try out some of the online project management tools, such as Basecamp and Campfire.
+
+---------------
+Deliverables
+---------------
+
+The deliverables for stage II of this project are as follows:
+
+* A working Rails (version 2.3.x) site, that:
+
+ - has an up-to-date schema.rb file
+ - describes all required gems (including version where applicable) in config/environment.rb (or via Bundler)
+ - has few (preferably no) external service dependencies (ie use acts_as_indexable not sphinx). Dependencies that are ok: memcache, mysql, cron.
+ - has a README file that describes setup steps.
+ - A working set of unit tests.
+
+* Documentation that should consist of:
+
+ * Functionality and Design Decisions (max. 2 pages)
+
+   - What functionality was included in the final product? What was left out? What design decisions were made that had a bearing on the final functionality?
+
+ * Review and Further Development (max. 2 pages)
+
+   - This section provides an opportunity to critically reflect on your team's development process, what you learnt, how you might do things differently next time, and where you would take the project given more time.
+
+The documentation should be submitted to cssubmit in PDF format. You should check that your document can be opened and read in the Preview application on the Macs. You may also include a copy of the document in your group directory.
+
+------------------
+A news aggregator
+-------------------
+
+There is so much information out there on the Internet, that aggregation services are can be really helpful disseminating information on a particular topic. Now that many sites syndicate their data via RSS and webservices, building news aggregator is quite simple.
+
+Baseline (85%)
+-------------------
+
+* The system should:
+
+ - periodically download and cache a number of RSS feeds;
+ - display the feeds in reverse chronological date; and
+ - categorise the feeds
+
+Full Marks (100%)
+----------------------
+
+* The system should:
+
+ - download any associated images with the stream, resize them and display them as part of the story;
+ - add an RSS feed of the cached feeds; and
+ - have complete unit and functional/integrations tests (10%)
+
+Bonus marks (110%)
+--------------------
+
+To get the bonus marks for this project, the system should include indexed full text search, allowing users to search the cached feeds for keywords. The system should also make â€œYou may also likeâ€ suggestions (8%). Building the site using HTML5 and CSS3 is worth an additional 2%.
+
+Specification Updates
+----------------------
+
+The project and any changes will be discussed further in the lectures.
+
+Any specification updates or clarifications will be notified on help4230. You are responsible for checking this regularly. (It is suggested that you set your preferences so that you are sent an email of any postings on help4230.)
+
+
