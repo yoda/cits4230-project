@@ -1,0 +1,17 @@
+#footer
+  %ul#footer-nav
+    %li= link_to 'Home',          './index.html'
+    %li= link_to 'Your Profile',  './profile.html'
+    %li= link_to 'Your Favourites', './favourites.html'
+    %li= link_to 'Example Post',  './story.html'
+    %li= link_to 'Submit a Blog', './submit.html'
+  %p#footer-summary
+    Rubyocracy - A project of CITS4230 Group F. All Rights Reserved. Site copyright 2010 onwards.
+    %br
+    = pending_link "Contact Us"
+    if you have any questions.
+    %br
+    %a{:href => "http://jigsaw.w3.org/css-validator/check/referer"}
+      %img{:src => "http://jigsaw.w3.org/css-validator/images/vcss", :alt => "This document's stylesheet is valid CSS 2.1"}
+    %a{:href => "http://validator.w3.org/check?uri=referer"}
+      %img{:src => "http://www.w3.org/Icons/valid-xhtml11", :alt => "This document's stylesheet is valid XHTML 1.1"}
