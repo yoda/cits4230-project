@@ -11,8 +11,19 @@ GEM
     activeresource (2.3.10)
       activesupport (= 2.3.10)
     activesupport (2.3.10)
+    annotate (2.4.0)
+    babosa (0.2.0)
+    cancan (1.4.0)
     devise (1.0.8)
       warden (~> 0.10.3)
+    formtastic (1.1.0)
+      actionpack (>= 2.3.0)
+      activesupport (>= 2.3.0)
+      i18n (>= 0.4.0)
+    friendly_id (3.1.7)
+      babosa (~> 0.2.0)
+    haml (3.0.21)
+    i18n (0.4.1)
     rack (1.1.0)
     rails (2.3.10)
       actionmailer (= 2.3.10)
@@ -30,7 +41,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  annotate
+  cancan
   devise (= 1.0.8)
+  formtastic (~> 1.1.0)
+  friendly_id
+  haml
   rails (= 2.3.10)
   sqlite3-ruby
   warden

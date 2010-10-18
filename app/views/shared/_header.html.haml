@@ -2,8 +2,12 @@
   #inner-header
     %h1= link_to 'Rubyocracy', './index.html'
     %ul#header-primary-navigation
-      %li= link_to 'Your Profile', './profile.html'
-      %li= 'Sign Out'
+      - if user_signed_in?
+        %li= link_to "Your Profile", '#'
+        %li= link_to "Sign out", destroy_user_session_path
+      - else
+        %li= link_to "Sign up", new_user_registration_path
+        %li= link_to "Sign in", new_user_session_path
     .clearfix
   %ul#header-secondary-navigation
     %li= link_to 'Latest Posts', './index.html'
