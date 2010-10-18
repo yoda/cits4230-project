@@ -13,6 +13,10 @@ ActionController::Routing::Routes.draw do |map|
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   map.resources :products
+#  map.resources :rubyocracy
+#  map.resources :news_record
+
+
 
   # Sample resource route with options:
   #   map.resources :products, :member => { :short => :get, :toggle => :post }, :collection => { :sold => :get }
@@ -42,5 +46,5 @@ ActionController::Routing::Routes.draw do |map|
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
 
-  map.root :controller => "news_record"
+  map.root :controller => 'rubyocracy', :action => 'index'
 end

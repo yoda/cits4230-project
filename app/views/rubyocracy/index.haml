@@ -8,9 +8,10 @@
   = link_to '(hide)', '#', :id => 'hide-introduction'
 
 %ul.stories#top-stories
-  - 5.times do |i|
-    = render 'mock_story', :last_child => (i == 4)
+  - if !@stories.nil?
+    - @stories.each do |story| 
+      = render 'story', :story => story 
       
 #pagination
-  = pending_link "&laquo; Older Posts", '#',  :class => 'older-posts'
-  = pending_link "Newer Posts &raquo;", '#',  :class => 'newer-posts'
+-#  = pending_link "&laquo; Older Posts", '#',  :class => 'older-posts'
+-#  = pending_link "Newer Posts &raquo;", '#',  :class => 'newer-posts'
