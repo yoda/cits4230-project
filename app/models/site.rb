@@ -11,7 +11,7 @@ class Site < ActiveRecord::Base
 
   named_scope :approved, :conditions => {:approved => true}
   
-  validates_url_format_of :url, :allow_blank => true
+  validates_url_format_of :url, :feed_url, :allow_blank => true
   validate :validate_feed_url
   
   has_friendly_id :name, :use_slug => true

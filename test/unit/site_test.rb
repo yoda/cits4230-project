@@ -108,6 +108,74 @@ class SiteTest < ActiveSupport::TestCase
     
   end
   
+  context 'validations' do
+    
+    setup do
+      @site = Site.make_unsaved(:url => nil, :feed_url => nil)
+      stub(Site).feeds_for_url(anything) { ["http://my-feed.com/rss"] }
+    end
+    
+    should_not allow_value("localhost").for(:url)
+    should_not allow_value("BLAH BLAM").for(:url)
+    should_not allow_value("fennec fox.").for(:url)
+    should_not allow_value("127.0.0.1").for(:url)
+    should_not allow_value("blog.ninjahideout.com").for(:url)
+    should_not allow_value("blog.ninjahideout.com/a").for(:url)
+    should allow_value("http://blog.ninjahideout.com").for(:url)
+    should allow_value("http://blog.ninjahideout.com/a").for(:url)
+    
+    should_not allow_value("localhost").for(:feed_url)
+    should_not allow_value("BLAH BLAM").for(:feed_url)
+    should_not allow_value("fennec fox.").for(:feed_url)
+    should_not allow_value("127.0.0.1").for(:feed_url)
+    should_not allow_value("blog.ninjahideout.com").for(:feed_url)
+    should_not allow_value("blog.ninjahideout.com/a").for(:feed_url)
+    should allow_value("http://blog.ninjahideout.com").for(:feed_url)
+    should allow_value("http://blog.ninjahideout.com/a").for(:feed_url)
+    
+    should 'automatically load feed suggestions if the feed url is missing' do
+      mock(Site).feeds_for_url("http://blog.ninjahideout.com/") { ["http://blog.ninjahideout.com/posts.rss", "http://blog.ninjahideout.com/posts/full.rss"] }
+      @site.url = "http://blog.ninjahideout.com/"
+      assert !@site.valid?
+      assert @site.errors.invalid?(:url)
+      assert Array(@site.errors.on(:url)).to_sentence.include?("multiple")
+      assert_equal ["http://blog.ninjahideout.com/posts.rss", "http://blog.ninjahideout.com/posts/full.rss"], @site.feed_choices
+    end
+    
+    should 'add an error when the url doesn\'t contain valid feeds and feed_url is blank' do
+      mock(Site).feeds_for_url("http://blog.ninjahideout.com/") { [] }
+      @site.url = "http://blog.ninjahideout.com/"
+      assert !@site.valid?
+      assert @site.errors.invalid?(:url)
+      assert Array(@site.errors.on(:url)).to_sentence.include?("does not contain a feed or a page pointing to a feed")
+    end
+    
+  end
+  
+  context 'approving' do
+    
+    should 'default to unapproved' do
+      assert !Site.make.approved?
+    end
+    
+    should 'let you approve it' do
+      site = Site.make
+      site.approve!
+      assert site.approved?
+    end
+    
+    should 'let you find approved sites' do
+      site_a = Site.make
+      site_b = Site.make
+      site_c = Site.make
+      site_a.approve!
+      assert_equal [site_a], Site.approved.all
+      site_b.approve!
+      assert_equal [site_a, site_b], Site.approved.all
+    end
+    
+  end
+  
 end
 
 
