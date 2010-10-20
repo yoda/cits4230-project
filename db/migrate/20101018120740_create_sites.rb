@@ -5,8 +5,8 @@ class CreateSites < ActiveRecord::Migration
       t.belongs_to :owner
       t.boolean :approved
       t.string :url
-      t.datetime :last_fetched_at
-
+      t.string :feed_etag
+      t.datetime :last_modified_at
       t.timestamps
     end
   end

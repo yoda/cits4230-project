@@ -10,10 +10,21 @@ gem 'warden'
 gem 'haml'
 
 gem 'cancan'
-gem 'shoulda'
 
 gem 'formtastic', '~> 1.1.0'
 gem 'friendly_id'
 gem 'annotate', :require => nil
 
 gem 'feedzirra'
+
+group :test do
+  gem 'autotest'
+  gem 'shoulda'
+end
+
+group :test_mac do
+  gem 'redgreen',         :require => nil
+  gem 'autotest-rails',   :require => nil
+  gem 'autotest-growl',   :require => nil
+  gem 'autotest-fsevent', :require => nil
+end

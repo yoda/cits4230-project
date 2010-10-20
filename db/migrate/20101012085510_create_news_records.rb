@@ -2,9 +2,10 @@ class CreateNewsRecords < ActiveRecord::Migration
   def self.up
     create_table :news_records do |t|
       t.string :url
-      t.text :description
+      t.text    :abstract
       t.string :title
-
+      t.belongs_to :site
+      t.datetime :posted_at
       t.timestamps
     end
   end

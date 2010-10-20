@@ -9,12 +9,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101018120740) do
+ActiveRecord::Schema.define(:version => 20101018124535) do
 
   create_table "news_records", :force => true do |t|
     t.string   "url"
-    t.text     "description"
+    t.text     "abstract"
     t.string   "title"
+    t.integer  "site_id"
+    t.datetime "posted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -24,15 +26,16 @@ ActiveRecord::Schema.define(:version => 20101018120740) do
     t.integer  "owner_id"
     t.boolean  "approved"
     t.string   "url"
-    t.datetime "last_fetched_at"
+    t.string   "feed_etag"
+    t.datetime "last_modified_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                               :default => "", :null => false
-    t.string   "encrypted_password",   :limit => 128, :default => "", :null => false
-    t.string   "password_salt",                       :default => "", :null => false
+    t.string   "email",                               :default => "",    :null => false
+    t.string   "encrypted_password",   :limit => 128, :default => "",    :null => false
+    t.string   "password_salt",                       :default => "",    :null => false
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
@@ -46,6 +49,7 @@ ActiveRecord::Schema.define(:version => 20101018120740) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "admin",                               :default => false
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
