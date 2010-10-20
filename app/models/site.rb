@@ -23,12 +23,11 @@ class Site < ActiveRecord::Base
     feed
   end
   
-  def update!
+  def update_feed
     updated_feed = Feedzirra::Feed.update self.to_feed
     if updated_feed.updated?
       updated_feed.new_entries.each do |entry|
-        debugger
-        news_records.create!({
+        news_records.build({
           :title     => entry.title.try(:sanitize),
           :url       => entry.url,
           :abstract  => (entry.content || entry.summary).try(:sanitize),
@@ -37,11 +36,19 @@ class Site < ActiveRecord::Base
       end
       self.feed_etag        = updated_feed.etag
       self.last_modified_at = updated_feed.last_modified
-      save!
       updated_feed.new_entries.size
     else
       false
     end
+  end
+  
+  def update_feed!
+    self.class.transaction do
+      update_feed
+      save!
+    end
+  rescue ActiveRecord::RecordInvalid, ActiveRecord::RecordNotSaved
+    false
   end
   
 end

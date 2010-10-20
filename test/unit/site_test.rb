@@ -21,7 +21,6 @@ class SiteTest < ActiveSupport::TestCase
     end
     
     should 'allow to to get an updateable feed' do
-      
     end
     
     should 'allow you to update the feed' do
