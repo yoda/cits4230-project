@@ -18,9 +18,17 @@ gem 'annotate', :require => nil
 gem 'feedzirra'
 gem 'FeedFinder', :git => 'git://github.com/kjbekkelund/FeedFinder.git', :require => 'feedfinder'
 
+gem 'will_paginate'
+
+gem 'validates_url_format_of'
+
 group :test do
   gem 'ZenTest', :require => nil
   gem 'shoulda'
+  gem 'rr'
+  gem 'ffaker', :require => nil
+  gem 'machinist', '~> 1.0', :require => nil
+  gem 'ruby-debug'
 end
 
 group :test_mac do

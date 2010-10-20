@@ -1,0 +1,26 @@
+%li.story{:class => (@last_child ? "last" : nil)}
+  .story-inner
+    %h3
+      = link_to news_record.title, [news_record.site, news_record], :class => 'story-title'
+    -# = link_to '12 comments', './story.html#comments', :class => 'story-comments'
+    .story-vote
+      = link_to "I Liked it", "#", :class => 'story-up-vote'
+      or
+      = link_to "I didn't like it", "#", :class => 'story-down-vote'
+    %br.clear
+    .story-preview= linked_screenshot news_record
+    .story-nested-details
+      .story-summary
+        %p Something here
+      .story-meta-container
+        %p.story-meta
+          Posted on
+          = link_to news_record.site.name, news_record.site.url
+          about <span class='story-posted-at'>#{time_ago_in_words news_record.posted_at} ago</span>.
+        %p.story-favourites
+          Favourited by
+          %span.story-faved-count 3 people
+          \-
+          = link_to "Favourite Story", "./favourites.html", :class => 'story-favourite'
+        .clearfix
+  .clearfix

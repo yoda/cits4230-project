@@ -30,12 +30,18 @@
     
     .row.string
       = f.label :url, "Blog URL:", :class => 'field-name'
-      - if @site.feed_choices.present?
-        = f.select :url, @site.feed_choices
-      - else
-        = f.text_field :url, :class => 'text'
+      = f.text_field :url, :class => 'text'
       .clearfix
       = ninja_errors f, :url, "Blog URL"
+    
+    .row.string
+      = f.label :feed_url, "Feed URL:", :class => 'field-name'
+      - if @site.feed_choices.present?
+        = f.select :feed_url, @site.feed_choices, :class => 'text'
+      - else
+        = f.text_field :feed_url, :class => 'text'
+      .clearfix
+      = ninja_errors f, :feed_url, "Feed URL"
     
   
   %fieldset.buttons

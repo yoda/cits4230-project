@@ -4,6 +4,7 @@ class CreateNewsRecords < ActiveRecord::Migration
       t.string :url
       t.text    :abstract
       t.string :title
+      t.string :author_name
       t.belongs_to :site
       t.datetime :posted_at
       t.string :cached_slug

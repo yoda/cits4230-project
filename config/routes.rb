@@ -4,6 +4,8 @@ ActionController::Routing::Routes.draw do |map|
   
   map.hide_notice 'hide-notice', :controller => 'rubyocracy', :action => 'hide_notice'
   
-  map.resources :sites
+  map.resources :sites do |site|
+    site.resources :news_records, :as => 'stories'
+  end
   
 end

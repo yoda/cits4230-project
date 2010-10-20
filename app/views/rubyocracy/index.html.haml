@@ -8,10 +8,8 @@
     to get a chance to build your reputation as a respected ruby blogger among fellow rubyists.
     = link_to '(hide)', '#', :id => 'hide-introduction'
 
-%ul.stories#top-stories
-  - if !@stories.nil?
-    - @stories.each do |story| 
-      = render 'story', :story => story 
+%ul.stories#top-stories= render :partial => 'news_records/news_record', :collection => @news_records
+  
       
 #pagination
 -#  = pending_link "&laquo; Older Posts", '#',  :class => 'older-posts'
