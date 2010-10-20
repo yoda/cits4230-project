@@ -10,9 +10,10 @@ gem 'warden'
 gem 'haml'
 
 gem 'cancan'
+gem 'shoulda'
 
 gem 'formtastic', '~> 1.1.0'
 gem 'friendly_id'
 gem 'annotate', :require => nil
 
-gem 'feedzirra', :git => 'git://github.com/pauldix/feedzirra.git'
+gem 'feedzirra'
