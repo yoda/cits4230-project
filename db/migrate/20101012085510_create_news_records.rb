@@ -6,6 +6,7 @@ class CreateNewsRecords < ActiveRecord::Migration
       t.string :title
       t.belongs_to :site
       t.datetime :posted_at
+      t.string :cached_slug
       t.timestamps
     end
   end

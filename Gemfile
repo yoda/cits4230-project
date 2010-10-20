@@ -16,9 +16,10 @@ gem 'friendly_id'
 gem 'annotate', :require => nil
 
 gem 'feedzirra'
+gem 'FeedFinder', :git => 'git://github.com/kjbekkelund/FeedFinder.git', :require => 'feedfinder'
 
 group :test do
-  gem 'autotest'
+  gem 'ZenTest', :require => nil
   gem 'shoulda'
 end
 

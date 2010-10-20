@@ -1,11 +1,12 @@
 %h2 Latest Posts on Rubyocracy
 
-%p#rubyocracy-introduction
-  Rubyocracy is a community powered news site for Ruby developers. Think of it like a blog aggregator
-  but with added bonuses like community voting and badges.
-  = link_to 'Submit your blog', './submit.html'
-  to get a chance to build your reputation as a respected ruby blogger among fellow rubyists.
-  = link_to '(hide)', '#', :id => 'hide-introduction'
+- if show_welcome_notice?
+  %p#rubyocracy-introduction
+    Rubyocracy is a community powered news site for Ruby developers. Think of it like a blog aggregator
+    but with added bonuses like community voting and badges.
+    = link_to 'Submit your blog', new_site_path
+    to get a chance to build your reputation as a respected ruby blogger among fellow rubyists.
+    = link_to '(hide)', '#', :id => 'hide-introduction'
 
 %ul.stories#top-stories
   - if !@stories.nil?

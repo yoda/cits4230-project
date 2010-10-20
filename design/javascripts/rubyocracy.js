@@ -106,11 +106,11 @@ var Rubyocracy = {};
   
   // Example use:
   
-  r.addValidatorFor('blog[author]', function(field) {
+  r.addValidatorFor('site[author_name]', function(field) {
     if(r.isBlank(field.value)) return 'Author name must be filled in';
   });
   
-  r.addValidatorFor('blog[url]', function(field) {
+  r.addValidatorFor('site[url]', function(field) {
     if(r.isBlank(field.value)) return 'URL must be filled in';
     if(!r.urlRegex.test(field.value)) {
       return 'The given url does not look like a valid address';
@@ -161,7 +161,7 @@ var Rubyocracy = {};
   r.blogShowTimeout = null;
   
   r.setupExampleBlogViewer = function() {
-    var blogURL = r.byName('blog[url]');
+    var blogURL = r.byName('site[url]');
     if(!blogURL) return;
     $(blogURL).keyup(function() {
       r.conditionallyShowBlogPreview();

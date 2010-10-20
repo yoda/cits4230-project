@@ -3,13 +3,15 @@ require 'test_helper'
 class SiteTest < ActiveSupport::TestCase
   
   should validate_presence_of :name
+  should validate_presence_of :author_name
   should validate_presence_of :url
   
   should belong_to :owner
   should have_many :news_records
   
   should allow_mass_assignment_of :name
-  should allow_mass_assignment_of :name
+  should allow_mass_assignment_of :author_name
+  should allow_mass_assignment_of :url
   should_not allow_mass_assignment_of :owner_id
   should_not allow_mass_assignment_of :approved
   should_not allow_mass_assignment_of :last_modified_at

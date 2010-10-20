@@ -3,11 +3,21 @@ class Site < ActiveRecord::Base
   belongs_to :owner, :class_name => "User"
   has_many   :news_records
   
-  validates_presence_of :name, :url
+  validates_presence_of :name, :url, :author_name
   
-  attr_accessible :name, :url
+  attr_accessible :name, :url, :self_authored, :author_name
+  
+  attr_accessor :self_authored
 
   named_scope :approved, :conditions => {:approved => true}
+  
+  validate :validate_feed_url
+  
+  has_friendly_id :name, :use_slug => true
+  
+  def approve!
+    update_attribute :approved, true
+  end
   
   def to_feed
     feed               = Feedzirra::Parser::Atom.new
@@ -49,6 +59,27 @@ class Site < ActiveRecord::Base
     end
   rescue ActiveRecord::RecordInvalid, ActiveRecord::RecordNotSaved
     false
+  end
+  
+  attr_reader :feed_choices
+  
+  def validate_feed_url
+    return if url.blank?
+    feeds = self.class.feeds_for_url(url)
+    if feeds.blank?
+      errors.add :url, "does not contain a feed or a page pointing to a feed"
+    elsif feeds.size == 1
+      self.url = feeds.first
+    else
+      @feed_choices = feeds
+      errors.add :url, "contains multiple feeds - please choose one"
+    end
+  rescue FeedFinder::UrlError
+    errors.add :url, "is not a valid url"
+  end
+  
+  def self.feeds_for_url(url)
+    Array(FeedFinder.feeds(url))
   end
   
 end

@@ -7,6 +7,8 @@ class NewsRecord < ActiveRecord::Base
   
   named_scope :latest, :order => 'posted_at DESC'
   
+  has_friendly_id :title, :use_slug => true
+  
 end
 
 

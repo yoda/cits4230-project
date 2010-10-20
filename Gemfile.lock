@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/kjbekkelund/FeedFinder.git
+  revision: ac121d6dbe88fa0d929ea488485edb335ddd8440
+  specs:
+    FeedFinder (0.2.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -13,7 +19,6 @@ GEM
       activesupport (= 2.3.10)
     activesupport (2.3.10)
     annotate (2.4.0)
-    autotest (4.4.1)
     autotest-fsevent (0.2.3)
       sys-uname
     autotest-growl (0.2.6)
@@ -65,8 +70,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  FeedFinder!
+  ZenTest
   annotate
-  autotest
   autotest-fsevent
   autotest-growl
   autotest-rails

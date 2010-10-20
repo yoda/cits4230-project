@@ -106,11 +106,11 @@ var Rubyocracy = {};
   
   // Example use:
   
-  r.addValidatorFor('blog[author]', function(field) {
+  r.addValidatorFor('site[author_name]', function(field) {
     if(r.isBlank(field.value)) return 'Author name must be filled in';
   });
   
-  r.addValidatorFor('blog[url]', function(field) {
+  r.addValidatorFor('site[url]', function(field) {
     if(r.isBlank(field.value)) return 'URL must be filled in';
     if(!r.urlRegex.test(field.value)) {
       return 'The given url does not look like a valid address';
@@ -123,56 +123,20 @@ var Rubyocracy = {};
   
   // The simple hide / show message on the home page.
   r.setupWelcomeMessage = function() {
-    var welcomeContainer = r.byID('rubyocracy-introduction');
-    if(!welcomeContainer) return;
-    var hideWelcomeContainer = r.byID('hide-introduction');
-    if(!hideWelcomeContainer) return;
-    $(hideWelcomeContainer).click(function() {
-      welcomeContainer.style.display = 'none';
+    var welcomeContainer = $('#rubyocracy-introduction');
+    if(welcomeContainer.size() == 0) return;
+    $('#hide-introduction').click(function() {
+      $.get('/hide-notice', function() {
+        welcomeContainer.slideUp();
+      });
       return false;
     });
-  };
-  
-  r.conditionallyShowBlogPreview = function() {
-    if(r.blogShowTimeout) {
-      clearTimeout(r.blogShowTimeout)
-      r.blogShowTimeout = null;
-    };
-    var blogPreview        = r.byID('blog-preview');
-    var blogPreviewLoading = r.byID('blog-preview-loading');
-    var innerBlogPreview   = r.byID('inner-blog-preview');
-    if(!blogPreview) return;
-    var isValid = r.validate('blog[url]', true);
-    innerBlogPreview.innerText       = isValid ? 'Loading...' : 'Enter a valid url to preview.';
-    blogPreviewLoading.style.display = 'block';
-    blogPreview.style.display        = 'none';
-    r.blogShowTimeout = setTimeout(function() {
-      if(isValid) {
-        blogPreviewLoading.style.display = 'none';
-        blogPreview.style.display        = 'block';
-
-      } else {
-        blogPreviewLoading.style.display = 'block';
-        blogPreview.style.display        = 'none';
-      }
-    }, 1000);
-  }
-  
-  r.blogShowTimeout = null;
-  
-  r.setupExampleBlogViewer = function() {
-    var blogURL = r.byName('blog[url]');
-    if(!blogURL) return;
-    $(blogURL).keyup(function() {
-      r.conditionallyShowBlogPreview();
-    })
-    r.conditionallyShowBlogPreview();
   };
 
   r.setupAll = function() {
     r.setupWelcomeMessage();
-    r.setupValidators();
-    r.setupExampleBlogViewer();
+    //r.setupValidators();
+    //r.setupExampleBlogViewer();
   };
   
   $(document).ready(function() {

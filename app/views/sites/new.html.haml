@@ -1,0 +1,43 @@
+%h2 Submit a Blog to Rubyocracy
+
+%p#header-summary
+  Submitting a blog means that if the author has a subscribeable news
+  feed available, we'll automatically pull in posts when they're published.
+  For added geek cred, if the blog is hooked up to a pubsub hub we'll index
+  the posts in real time.
+  
+- form_for @site, :id => "submit-blog" do |f|
+
+  %fieldset
+
+    %legend Tell us about the blog
+  
+    .row.string
+      = f.label :author_name, "Blog Author:", :class => 'field-name'
+      = f.text_field :author_name, :class => 'text'
+      .clearfix
+      %label.extended
+        = f.check_box :self_authored
+        I'm the primary author of this blog.
+      .clearfix
+      = ninja_errors f, :author_name
+    
+    .row.string
+      = f.label :name, "Blog Name:", :class => 'field-name'
+      = f.text_field :name, :class => 'text'
+      .clearfix
+      = ninja_errors f, :name, "Blog Name"
+    
+    .row.string
+      = f.label :url, "Blog URL:", :class => 'field-name'
+      - if @site.feed_choices.present?
+        = f.select :url, @site.feed_choices
+      - else
+        = f.text_field :url, :class => 'text'
+      .clearfix
+      = ninja_errors f, :url, "Blog URL"
+    
+  
+  %fieldset.buttons
+    %input{:type => "submit", :value => "Add this Blog", :id => "submit-blog-button"}
+    
