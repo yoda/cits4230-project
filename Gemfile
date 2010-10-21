@@ -10,8 +10,8 @@ gem 'warden'
 gem 'haml'
 
 
-gem 'acts_as_commentable'
 gem 'cancan'
+#gem 'acts_as_commentable', :git => 'git://github.com/jackdempsey/acts_as_commentable.git'
 
 gem 'formtastic', '~> 1.1.0'
 gem 'friendly_id'
