@@ -9,7 +9,8 @@ class SitesController < ApplicationController
   def create
     @site = Site.new(params[:site])
     if @site.save
-      redirect_to @site
+      @story = @site.story
+      render 'stories/story.haml'
     else
       render :action => "new"
     end
