@@ -6,7 +6,7 @@ class StoryTest < ActiveSupport::TestCase
   
   should validate_presence_of :url
   should validate_presence_of :title
-  should validate_presence_of :abstract
+  should validate_presence_of :content
   should validate_presence_of :posted_at
   should validate_presence_of :site
   should validate_presence_of :author_name
@@ -14,6 +14,7 @@ class StoryTest < ActiveSupport::TestCase
   should allow_mass_assignment_of :url
   should allow_mass_assignment_of :title
   should allow_mass_assignment_of :abstract
+  should allow_mass_assignment_of :content
   should allow_mass_assignment_of :posted_at
   should allow_mass_assignment_of :author_name
   

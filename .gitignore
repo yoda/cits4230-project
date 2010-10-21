@@ -3,3 +3,5 @@ log/*.log
 design/tmp
 db/*.sqlite3
 tmp/*
+coverage.data
+coverage/*

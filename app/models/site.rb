@@ -1,7 +1,7 @@
 class Site < ActiveRecord::Base
   
   belongs_to :owner, :class_name => "User"
-  has_many   :story
+  has_many   :stories
   
   validates_presence_of :name, :feed_url, :url, :author_name
   
@@ -25,7 +25,7 @@ class Site < ActiveRecord::Base
     feed.feed_url      = feed_url
     feed.etag          = feed_etag
     feed.last_modified = last_modified_at
-    last_entry         = story.latest.first
+    last_entry         = stories.latest.first
     if last_entry.present?
       feed_entry     = Feedzirra::Parser::AtomEntry.new
       feed_entry.url = last_entry.url
@@ -38,11 +38,11 @@ class Site < ActiveRecord::Base
     updated_feed = Feedzirra::Feed.update self.to_feed
     if updated_feed.updated?
       updated_feed.new_entries.each do |entry|
-        story.build({
+        stories.build({
           :title       => entry.title.try(:sanitize),
           :url         => entry.url,
           :author_name => (entry.author.try(:sanitize) || self.author_name),
-          :abstract    => (entry.content || entry.summary).try(:sanitize),
+          :content     => (entry.content || entry.summary).try(:sanitize),
           :posted_at   => entry.published,
         }) { |r| r.site = self }
       end
@@ -75,7 +75,7 @@ class Site < ActiveRecord::Base
       errors.add :url, "contains multiple feeds - please choose one"
     end
   rescue FeedFinder::UrlError
-    errors.add :feed_url, "is not a valid url"
+    errors.add :url, "is not a valid url"
   end
   
   def self.feeds_for_url(url)

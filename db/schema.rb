@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(:version => 20101021044203) do
 
   create_table "stories", :force => true do |t|
     t.string   "url"
+    t.text     "content"
     t.text     "abstract"
     t.string   "title"
     t.string   "author_name"

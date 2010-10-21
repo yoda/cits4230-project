@@ -7,7 +7,7 @@ class SiteTest < ActiveSupport::TestCase
   should validate_presence_of :url
   
   should belong_to :owner
-  should have_many :story
+  should have_many :stories
   
   should allow_mass_assignment_of :name
   should allow_mass_assignment_of :author_name
@@ -31,6 +31,15 @@ class SiteTest < ActiveSupport::TestCase
       assert_kind_of Feedzirra::Parser::Atom, feed
     end
     
+    should 'set the entries on the feed if present' do
+      @site.save
+      entry = Story.make(:site => @site)
+      feed = @site.to_feed
+      assert feed.entries.present?
+      entry = feed.entries.last
+      assert_equal entry.url, entry.url
+    end
+
     should 'allow you to update the feed' do
       feed          = @site.to_feed
       updated_feed  = Object.new
@@ -41,7 +50,7 @@ class SiteTest < ActiveSupport::TestCase
       mock(updated_feed).last_modified   { last_modified }
       mock(@site).to_feed                { feed }
       mock(Feedzirra::Feed).update(feed) { updated_feed }
-      assert_equal 0, @site.story.count
+      assert_equal 0, @site.stories.count
       mock_entry           = Feedzirra::Parser::AtomEntry.new
       mock_entry.url       = File.join(@site.url, "some-random-entry")
       mock_entry.title     = "Oh my lord, it's a ninja!"
@@ -51,12 +60,12 @@ class SiteTest < ActiveSupport::TestCase
       # Now, set the entries.
       mock(updated_feed).new_entries.times(any_times) { [mock_entry] }
       @site.update_feed!
-      assert_equal 1, @site.story.count
-      story = @site.story.first
+      assert_equal 1, @site.stories.count
+      story = @site.stories.first
       assert_equal "Oh my lord, it's a ninja!", story.title
       assert_equal "Test User",                 story.author_name
       assert_equal published_at.to_s,           story.posted_at.to_s
-      assert_equal "My Blog Post",              story.abstract
+      assert_equal "<p>My Blog Post</p>",       story.abstract
       assert_equal "some-etag",                 @site.feed_etag
       assert_equal last_modified,               @site.last_modified_at
     end
@@ -71,7 +80,7 @@ class SiteTest < ActiveSupport::TestCase
       mock(updated_feed).last_modified   { last_modified }
       mock(@site).to_feed                { feed }
       mock(Feedzirra::Feed).update(feed) { updated_feed }
-      assert_equal 0, @site.story.count
+      assert_equal 0, @site.stories.count
       mock_entry           = Feedzirra::Parser::AtomEntry.new
       mock_entry.url       = File.join(@site.url, "some-random-entry")
       mock_entry.title     = "Oh my lord, it's a ninja!"
@@ -81,8 +90,8 @@ class SiteTest < ActiveSupport::TestCase
       # Now, set the entries.
       mock(updated_feed).new_entries.times(any_times) { [mock_entry] }
       @site.update_feed!
-      assert_equal 1, @site.story.count
-      story = @site.story.first
+      assert_equal 1, @site.stories.count
+      story = @site.stories.first
       assert_equal @site.author_name, story.author_name
     end
     
@@ -150,6 +159,14 @@ class SiteTest < ActiveSupport::TestCase
       assert Array(@site.errors.on(:url)).to_sentence.include?("does not contain a feed or a page pointing to a feed")
     end
     
+    should 'deal with errors finding feeds correctly' do
+      mock(Site).feeds_for_url("http://blog.ninjahideout.com/") { raise FeedFinder::UrlError.new("http://blog.ninjahideout.com/") }
+      @site.url = "http://blog.ninjahideout.com/"
+      assert !@site.valid?
+      assert @site.errors.invalid?(:url)
+      assert Array(@site.errors.on(:url)).to_sentence.include?("is not a valid url")
+    end
+
   end
   
   context 'approving' do
@@ -176,6 +193,20 @@ class SiteTest < ActiveSupport::TestCase
     
   end
   
+  context 'finding feeds' do
+
+    should 'use feed finder' do
+      mock(FeedFinder).feeds("test.com") { %w(a b) }
+      assert_equal %w(a b), Site.feeds_for_url("test.com")
+    end
+
+    should 'make sure the result is an array' do
+      mock(FeedFinder).feeds("test.com") { nil }
+      assert_equal [], Site.feeds_for_url("test.com")
+    end
+
+  end
+
 end
 
 
