@@ -9,6 +9,8 @@ gem 'warden'
 
 gem 'haml'
 
+
+gem 'acts_as_commentable'
 gem 'cancan'
 
 gem 'formtastic', '~> 1.1.0'

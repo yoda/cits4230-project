@@ -1,0 +1,54 @@
+%h2= @story[:title]
+
+#story
+  .story-inner
+    .story-preview
+      %a{:href => "#", :onclick => "alert('On the real site, this will go to the blog post.'); return false;"}
+        %img{:src => "./images/site.png", :alt => 'Some Simple Blog Title Here'}
+    .story-nested-details
+      .story-summary
+        %p= quote
+      .story-meta-container
+        %p.story-meta
+          Posted on
+          = link_to "Some Users Blog", "#", :class => 'story-origin-link'
+          about <span class='story-posted-at'>10 hours ago</span>.
+        %p.story-favourites
+          Favourited by
+          %span.story-faved-count 3 people
+          \-
+          = link_to "Favourite Story", "./favourites.html", :class => 'story-favourite'
+  %br.clear
+  %p#story-meta
+    = link_to 'This story has 12 comments', '#comments', :class => 'story-meta-comments'
+    \-
+    %span.story-vote
+      = pending_link "I Liked it", "#", :class => 'story-up-vote'
+      or
+      = pending_link "I didn't like it", "#", :class => 'story-down-vote'
+  .clearfix
+
+%a{:id => "comments"}
+#story-comments
+  %h4 Comments on This Story
+  
+  %ul#comment-listing
+    - 1.upto(5) do |index|
+      %li{:class => "comment"}
+        %p= quote
+        .comment-metadata
+          Comment by
+          = pending_link "Random User ##{index}", "#", :class => 'comment-author'
+          about
+          %span.comment-posted-at== #{index * 2} minutes ago
+  
+  %form#story-add-comment{:action => "#", :method => "get"}
+    %fieldset
+      %legend Add a Comment
+      .row.string
+        %label.field-name Your Comment:
+        %textarea{:name => "comment[contents]", :rows => 5, :cols => 70}
+        .clearfix
+        %p.field-errors
+    %fieldset.buttons
+      %input{:type => "submit", :value => "Add this Comment", :id => "submit-comment-button"}
