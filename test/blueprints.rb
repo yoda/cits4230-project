@@ -10,5 +10,10 @@ Site.blueprint do
 end
 
 Story.blueprint do
-  
+  site
+  url         { File.join(site.url, "some-new-blog-post-#{rand(10000)}") }
+  abstract    { "Some entry" }
+  title       { "Some title" }
+  posted_at   { 3.weeks.ago }
+  author_name { "Darcy Laycock" }
 end

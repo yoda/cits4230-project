@@ -31,6 +31,15 @@ class SiteTest < ActiveSupport::TestCase
       assert_kind_of Feedzirra::Parser::Atom, feed
     end
     
+    should 'set the entries on the feed if present' do
+      @site.save
+      entry = NewsRecord.make(:site => @site)
+      feed = @site.to_feed
+      assert feed.entries.present?
+      entry = feed.entries.last
+      assert_equal entry.url, entry.url
+    end
+
     should 'allow you to update the feed' do
       feed          = @site.to_feed
       updated_feed  = Object.new
@@ -150,6 +159,14 @@ class SiteTest < ActiveSupport::TestCase
       assert Array(@site.errors.on(:url)).to_sentence.include?("does not contain a feed or a page pointing to a feed")
     end
     
+    should 'deal with errors finding feeds correctly' do
+      mock(Site).feeds_for_url { raise FeedFinder::UrlError }
+      @site.url = "http://blog.ninjahideout.com/"
+      assert !@site.valid?
+      assert @site.errors.invalid?(:url)
+      assert Array(@site.errors.on(:url)).to_sentence.include?("is not a valid url")
+    end
+
   end
   
   context 'approving' do
@@ -176,6 +193,20 @@ class SiteTest < ActiveSupport::TestCase
     
   end
   
+  context 'finding feeds' do
+
+    should 'use feed finder' do
+      mock(FeedFinder).feeds("test.com") { %w(a b) }
+      assert_equal %w(a b), Site.feeds_for_url("test.com")
+    end
+
+    should 'make sure the result is an array' do
+      mock(FeedFinder).feeds("test.com") { nil }
+      assert_equal [], Site.feeds_for_url("test.com")
+    end
+
+  end
+
 end
 
 

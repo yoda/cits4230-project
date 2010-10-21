@@ -75,7 +75,7 @@ class Site < ActiveRecord::Base
       errors.add :url, "contains multiple feeds - please choose one"
     end
   rescue FeedFinder::UrlError
-    errors.add :feed_url, "is not a valid url"
+    errors.add :url, "is not a valid url"
   end
   
   def self.feeds_for_url(url)
