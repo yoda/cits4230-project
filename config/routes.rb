@@ -6,6 +6,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :sites do |site|
     site.resources :stories
   end
+
+  map.resources :stories
   
   map.root :controller => 'rubyocracy', :action => 'index'
 end

@@ -1,0 +1,11 @@
+%h2 Stories on Rubyocracy
+
+= link_to 'Submit your blog', new_site_path
+
+%ul.stories#top-stories= render :partial => 'stories/story.html.haml', :collection => @stories
+  
+      
+#pagination
+  = will_paginate @stories
+
+
