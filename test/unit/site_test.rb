@@ -33,7 +33,7 @@ class SiteTest < ActiveSupport::TestCase
     
     should 'set the entries on the feed if present' do
       @site.save
-      entry = NewsRecord.make(:site => @site)
+      entry = Story.make(:site => @site)
       feed = @site.to_feed
       assert feed.entries.present?
       entry = feed.entries.last
@@ -160,7 +160,7 @@ class SiteTest < ActiveSupport::TestCase
     end
     
     should 'deal with errors finding feeds correctly' do
-      mock(Site).feeds_for_url { raise FeedFinder::UrlError }
+      mock(Site).feeds_for_url("http://blog.ninjahideout.com/") { raise FeedFinder::UrlError.new("http://blog.ninjahideout.com/") }
       @site.url = "http://blog.ninjahideout.com/"
       assert !@site.valid?
       assert @site.errors.invalid?(:url)
