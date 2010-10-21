@@ -8,6 +8,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @story.comments.create(params[:comment]) 
+    @comment.user = current_user
     if @comment.save
       flash[:message] = "Sucessfully commented on the story"
     else

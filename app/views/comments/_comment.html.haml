@@ -1,0 +1,11 @@
+%h5= h(comment.title)
+%p= h(comment.comment)
+.comment-metadata
+  Comment by
+  - if !comment.user.nil?
+    = link_to h("#{comment.user.id}"), member_path(comment.user), :class => 'comment-author'
+  - else
+    = link_to "Anonymous", "#", :class => 'comment-author'
+  about
+  %span.comment-posted-at== #{time_ago_in_words(comment.created_at)} ago
+

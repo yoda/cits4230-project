@@ -6,5 +6,6 @@ end
 
 def show
   @story = Story.find(params[:id])
+  @story_comments = @story.comments.paginate( :page => params[:page], :per_page => 10)
 end
 end

@@ -9,6 +9,8 @@ ActionController::Routing::Routes.draw do |map|
     end
   end
 
+  map.resources :members, :only => :show
+
   
   map.root :controller => 'rubyocracy', :action => 'index'
 end
