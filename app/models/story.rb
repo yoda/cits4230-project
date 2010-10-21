@@ -1,4 +1,4 @@
-class NewsRecord < ActiveRecord::Base
+class Story < ActiveRecord::Base
   
   belongs_to :site
   
@@ -17,7 +17,7 @@ end
 
 # == Schema Information
 #
-# Table name: news_records
+# Table name: story
 #
 #  id          :integer         not null, primary key
 #  url         :string(255)

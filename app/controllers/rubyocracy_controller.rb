@@ -1,7 +1,7 @@
 class RubyocracyController < ApplicationController
 
   def index
-    @news_records = NewsRecord.ordered.paginate :page => params[:page], :include => :site, :per_page => 20
+    @stories = Story.ordered.paginate :page => params[:page], :include => :site, :per_page => 20
   end
 
   def trending

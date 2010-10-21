@@ -9,6 +9,6 @@ Site.blueprint do
   feed_url    { File.join(url, "feed.rss") }
 end
 
-NewsRecord.blueprint do
+Story.blueprint do
   
 end

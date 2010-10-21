@@ -14,10 +14,10 @@ module ApplicationHelper
     end
   end
   
-  def linked_screenshot(news_record)
-    image_url = "http://pinkyurl.com/i?url=#{URI.escape news_record.url}&out-format=png&resize=160&crop=160x140"
-    inner = image_tag(image_url, :alt => news_record.title)
-    link_to inner, news_record.url
+  def linked_screenshot(story)
+    image_url = "http://pinkyurl.com/i?url=#{URI.escape story.url}&out-format=png&resize=160&crop=160x140"
+    inner = image_tag(image_url, :alt => story.title)
+    link_to inner, story.url
   end
   
 end

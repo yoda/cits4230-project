@@ -11,18 +11,6 @@
 
 ActiveRecord::Schema.define(:version => 20101020095029) do
 
-  create_table "news_records", :force => true do |t|
-    t.string   "url"
-    t.text     "abstract"
-    t.string   "title"
-    t.string   "author_name"
-    t.integer  "site_id"
-    t.datetime "posted_at"
-    t.string   "cached_slug"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "sites", :force => true do |t|
     t.string   "name"
     t.string   "author_name"
@@ -48,6 +36,18 @@ ActiveRecord::Schema.define(:version => 20101020095029) do
 
   add_index "slugs", ["name", "sluggable_type", "sequence", "scope"], :name => "index_slugs_on_n_s_s_and_s", :unique => true
   add_index "slugs", ["sluggable_id"], :name => "index_slugs_on_sluggable_id"
+
+  create_table "stories", :force => true do |t|
+    t.string   "url"
+    t.text     "abstract"
+    t.string   "title"
+    t.string   "author_name"
+    t.integer  "site_id"
+    t.datetime "posted_at"
+    t.string   "cached_slug"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "",    :null => false

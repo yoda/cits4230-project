@@ -7,7 +7,7 @@ class SiteTest < ActiveSupport::TestCase
   should validate_presence_of :url
   
   should belong_to :owner
-  should have_many :news_records
+  should have_many :story
   
   should allow_mass_assignment_of :name
   should allow_mass_assignment_of :author_name
@@ -41,7 +41,7 @@ class SiteTest < ActiveSupport::TestCase
       mock(updated_feed).last_modified   { last_modified }
       mock(@site).to_feed                { feed }
       mock(Feedzirra::Feed).update(feed) { updated_feed }
-      assert_equal 0, @site.news_records.count
+      assert_equal 0, @site.story.count
       mock_entry           = Feedzirra::Parser::AtomEntry.new
       mock_entry.url       = File.join(@site.url, "some-random-entry")
       mock_entry.title     = "Oh my lord, it's a ninja!"
@@ -51,12 +51,12 @@ class SiteTest < ActiveSupport::TestCase
       # Now, set the entries.
       mock(updated_feed).new_entries.times(any_times) { [mock_entry] }
       @site.update_feed!
-      assert_equal 1, @site.news_records.count
-      news_record = @site.news_records.first
-      assert_equal "Oh my lord, it's a ninja!", news_record.title
-      assert_equal "Test User",                 news_record.author_name
-      assert_equal published_at.to_s,           news_record.posted_at.to_s
-      assert_equal "My Blog Post",              news_record.abstract
+      assert_equal 1, @site.story.count
+      story = @site.story.first
+      assert_equal "Oh my lord, it's a ninja!", story.title
+      assert_equal "Test User",                 story.author_name
+      assert_equal published_at.to_s,           story.posted_at.to_s
+      assert_equal "My Blog Post",              story.abstract
       assert_equal "some-etag",                 @site.feed_etag
       assert_equal last_modified,               @site.last_modified_at
     end
@@ -71,7 +71,7 @@ class SiteTest < ActiveSupport::TestCase
       mock(updated_feed).last_modified   { last_modified }
       mock(@site).to_feed                { feed }
       mock(Feedzirra::Feed).update(feed) { updated_feed }
-      assert_equal 0, @site.news_records.count
+      assert_equal 0, @site.story.count
       mock_entry           = Feedzirra::Parser::AtomEntry.new
       mock_entry.url       = File.join(@site.url, "some-random-entry")
       mock_entry.title     = "Oh my lord, it's a ninja!"
@@ -81,9 +81,9 @@ class SiteTest < ActiveSupport::TestCase
       # Now, set the entries.
       mock(updated_feed).new_entries.times(any_times) { [mock_entry] }
       @site.update_feed!
-      assert_equal 1, @site.news_records.count
-      news_record = @site.news_records.first
-      assert_equal @site.author_name, news_record.author_name
+      assert_equal 1, @site.story.count
+      story = @site.story.first
+      assert_equal @site.author_name, story.author_name
     end
     
     should 'return false when the feed isn\'t updated' do

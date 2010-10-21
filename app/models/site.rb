@@ -1,7 +1,7 @@
 class Site < ActiveRecord::Base
   
   belongs_to :owner, :class_name => "User"
-  has_many   :news_records
+  has_many   :story
   
   validates_presence_of :name, :feed_url, :url, :author_name
   
@@ -25,7 +25,7 @@ class Site < ActiveRecord::Base
     feed.feed_url      = feed_url
     feed.etag          = feed_etag
     feed.last_modified = last_modified_at
-    last_entry         = news_records.latest.first
+    last_entry         = story.latest.first
     if last_entry.present?
       feed_entry     = Feedzirra::Parser::AtomEntry.new
       feed_entry.url = last_entry.url
@@ -38,7 +38,7 @@ class Site < ActiveRecord::Base
     updated_feed = Feedzirra::Feed.update self.to_feed
     if updated_feed.updated?
       updated_feed.new_entries.each do |entry|
-        news_records.build({
+        story.build({
           :title       => entry.title.try(:sanitize),
           :url         => entry.url,
           :author_name => (entry.author.try(:sanitize) || self.author_name),

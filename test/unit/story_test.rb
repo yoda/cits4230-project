@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class NewsRecordTest < ActiveSupport::TestCase
+class StoryTest < ActiveSupport::TestCase
   
   should belong_to :site
   
