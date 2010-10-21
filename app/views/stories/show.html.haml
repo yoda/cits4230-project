@@ -8,6 +8,7 @@
   %ul#comment-listing
     - @story.comments.each_with_index do |comment, index|
       %li{:class => "comment"}
+        %h5= comment.title
         %p= comment.comment
         .comment-metadata
           Comment by
@@ -15,4 +16,8 @@
           about
           %span.comment-posted-at== #{Time.now - comment.created_at} minutes ago
   
-  = render :partial => 'comments/form', :locals => { :commentable => @story }
+  - if user_signed_in?
+    = render :partial => 'comments/form', :locals => { :commentable => @story }
+  - else
+    %h4 Sign in to comment on this story
+

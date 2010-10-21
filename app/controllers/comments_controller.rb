@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   
   before_filter :prepare_story, :only => [:create]
+  before_filter :authenticate_user!
 
   def new
   end
