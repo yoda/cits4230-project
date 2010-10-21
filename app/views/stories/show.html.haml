@@ -11,17 +11,8 @@
         %p= comment.comment
         .comment-metadata
           Comment by
-          = link_to "#{comment.user.name}", comment.user, :class => 'comment-author'
+          = link_to "#{comment.user}", comment.user, :class => 'comment-author'
           about
           %span.comment-posted-at== #{Time.now - comment.created_at} minutes ago
   
-  %form#story-add-comment{:action => "#", :method => "get"}
-    %fieldset
-      %legend Add a Comment
-      .row.string
-        %label.field-name Your Comment:
-        %textarea{:name => "comment[contents]", :rows => 5, :cols => 70}
-        .clearfix
-        %p.field-errors
-    %fieldset.buttons
-      %input{:type => "submit", :value => "Add this Comment", :id => "submit-comment-button"}
+  = render :partial => 'comments/form', :locals => { :commentable => @story }

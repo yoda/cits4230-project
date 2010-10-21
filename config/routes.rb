@@ -4,10 +4,11 @@ ActionController::Routing::Routes.draw do |map|
   map.hide_notice 'hide-notice', :controller => 'rubyocracy', :action => 'hide_notice'
   
   map.resources :sites do |site|
-    site.resources :stories
+    site.resources :stories do |story|
+      story.resources :comments
+    end
   end
 
-  map.resources :stories
   
   map.root :controller => 'rubyocracy', :action => 'index'
 end
