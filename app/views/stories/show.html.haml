@@ -7,7 +7,7 @@
         %img{:src => "./images/site.png", :alt => 'Some Simple Blog Title Here'}
     .story-nested-details
       .story-summary
-        %p= quote
+        %p= ''
       .story-meta-container
         %p.story-meta
           Posted on
@@ -23,9 +23,9 @@
     = link_to 'This story has 12 comments', '#comments', :class => 'story-meta-comments'
     \-
     %span.story-vote
-      = pending_link "I Liked it", "#", :class => 'story-up-vote'
+      = link_to "I Liked it", "#", :class => 'story-up-vote'
       or
-      = pending_link "I didn't like it", "#", :class => 'story-down-vote'
+      = link_to "I didn't like it", "#", :class => 'story-down-vote'
   .clearfix
 
 %a{:id => "comments"}
@@ -35,10 +35,10 @@
   %ul#comment-listing
     - 1.upto(5) do |index|
       %li{:class => "comment"}
-        %p= quote
+        %p= ''
         .comment-metadata
           Comment by
-          = pending_link "Random User ##{index}", "#", :class => 'comment-author'
+          = link_to "Random User ##{index}", "#", :class => 'comment-author'
           about
           %span.comment-posted-at== #{index * 2} minutes ago
   
