@@ -22,6 +22,9 @@ gem 'will_paginate'
 
 gem 'validates_url_format_of'
 
+gem 'httparty'
+gem 'nokogiri'
+
 group :test do
   gem 'ZenTest', :require => nil
   gem 'shoulda'
@@ -29,6 +32,7 @@ group :test do
   gem 'ffaker', :require => nil
   gem 'machinist', '~> 1.0', :require => nil
   gem 'ruby-debug'
+  gem 'rcov'
 end
 
 group :test_mac do
