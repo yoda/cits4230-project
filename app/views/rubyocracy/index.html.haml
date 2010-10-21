@@ -8,8 +8,7 @@
     to get a chance to build your reputation as a respected ruby blogger among fellow rubyists.
     = link_to '(hide)', '#', :id => 'hide-introduction'
 
-%ul.stories#top-stories= render :partial => 'stories/story.html.haml', :collection => @stories
+%ul.stories#top-stories= render :partial => 'stories/story', :collection => @stories
   
       
-#pagination
-  = will_paginate @stories
+#pagination= will_paginate @stories

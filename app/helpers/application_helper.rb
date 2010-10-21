@@ -20,4 +20,8 @@ module ApplicationHelper
     link_to inner, story.url
   end
   
+  def abstract_for(story)
+    sanitize story.abstract.to_s.html_safe
+  end
+  
 end

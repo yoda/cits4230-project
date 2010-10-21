@@ -7,7 +7,7 @@ class SiteTest < ActiveSupport::TestCase
   should validate_presence_of :url
   
   should belong_to :owner
-  should have_many :story
+  should have_many :stories
   
   should allow_mass_assignment_of :name
   should allow_mass_assignment_of :author_name
@@ -50,7 +50,7 @@ class SiteTest < ActiveSupport::TestCase
       mock(updated_feed).last_modified   { last_modified }
       mock(@site).to_feed                { feed }
       mock(Feedzirra::Feed).update(feed) { updated_feed }
-      assert_equal 0, @site.story.count
+      assert_equal 0, @site.stories.count
       mock_entry           = Feedzirra::Parser::AtomEntry.new
       mock_entry.url       = File.join(@site.url, "some-random-entry")
       mock_entry.title     = "Oh my lord, it's a ninja!"
@@ -60,12 +60,12 @@ class SiteTest < ActiveSupport::TestCase
       # Now, set the entries.
       mock(updated_feed).new_entries.times(any_times) { [mock_entry] }
       @site.update_feed!
-      assert_equal 1, @site.story.count
-      story = @site.story.first
+      assert_equal 1, @site.stories.count
+      story = @site.stories.first
       assert_equal "Oh my lord, it's a ninja!", story.title
       assert_equal "Test User",                 story.author_name
       assert_equal published_at.to_s,           story.posted_at.to_s
-      assert_equal "My Blog Post",              story.abstract
+      assert_equal "<p>My Blog Post</p>",       story.abstract
       assert_equal "some-etag",                 @site.feed_etag
       assert_equal last_modified,               @site.last_modified_at
     end
@@ -80,7 +80,7 @@ class SiteTest < ActiveSupport::TestCase
       mock(updated_feed).last_modified   { last_modified }
       mock(@site).to_feed                { feed }
       mock(Feedzirra::Feed).update(feed) { updated_feed }
-      assert_equal 0, @site.story.count
+      assert_equal 0, @site.stories.count
       mock_entry           = Feedzirra::Parser::AtomEntry.new
       mock_entry.url       = File.join(@site.url, "some-random-entry")
       mock_entry.title     = "Oh my lord, it's a ninja!"
@@ -90,8 +90,8 @@ class SiteTest < ActiveSupport::TestCase
       # Now, set the entries.
       mock(updated_feed).new_entries.times(any_times) { [mock_entry] }
       @site.update_feed!
-      assert_equal 1, @site.story.count
-      story = @site.story.first
+      assert_equal 1, @site.stories.count
+      story = @site.stories.first
       assert_equal @site.author_name, story.author_name
     end
     
