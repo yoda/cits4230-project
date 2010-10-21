@@ -1,5 +1,5 @@
 
-= render :partial => 'stories/story', :member => @story
+= render :partial => 'stories/story', :locals => {:story => @story}
 
 %a{:id => "comments"}
 #story-comments
