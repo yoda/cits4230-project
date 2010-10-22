@@ -1,5 +1,7 @@
 class Story < ActiveRecord::Base
   acts_as_commentable
+  blakstar_like
+  acts_as_favorite
   
   belongs_to :site
   

@@ -1,0 +1,51 @@
+h1. Blakstar Like
+
+Simple plugin for handling positive and negative likes.
+This stuff has been made for Blakstar cms and used in production, but released as a free solution.
+
+h2. Examples
+
+First, generate the migration file.
+<pre><code>
+script/generate blakstar_like_migration
+</code></pre>
+
+Include blakstar_like in a model you want to like.
+<pre><code>Class Post < ActiveRecord::Base
+
+  blakstar_like
+  
+end
+</code></pre>
+
+The following methods will be available:
+
+<pre><code>
+@post.like!( @user_1 )
+
+@post.dislike!( @user_2 )
+
+@post.average_like #=> 0
+
+@post.count_likes! #=> 1
+
+@post.count_dislikes! #=> 1
+</code></pre>
+
+h2. Caching
+
+If you add two new fields to Post - :likes_count and :dislikes_count - the plugin
+automatically caches the total number of likes / dislikes to speed up calculations.
+
+h2. Development
+
+The following features will be implemented:
+
+# Specify custom caching fields
+# Get all liked objects by user
+# Get all disliked objects by user
+# Get all objects by user whether it was liked or disliked.
+
+***************************************************************************
+
+Copyright (c) 2010 Ferenc Fekete ("Mr. Black":http://mrblack.hu), "Gergő Sulymosi":http://github.com/trekdemo

@@ -27,6 +27,8 @@ gem 'validates_url_format_of'
 gem 'httparty'
 gem 'nokogiri'
 
+gem 'acts_as_favorite'
+
 group :test do
   gem 'ZenTest', :require => nil
   gem 'shoulda'

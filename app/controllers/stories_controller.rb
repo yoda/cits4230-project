@@ -1,10 +1,36 @@
 class StoriesController < ApplicationController
 
-def index
-  @stories = Story.ordered.paginate :page => params[:page], :include => :site, :per_page => 20
-end
+  before_filter :authenticate_user!, :only => :like
 
-def show
-  @story = Story.find(params[:id])
-end
+  before_filter :prepare_site
+  before_filter :prepare_story
+
+  def show
+  end
+  
+  def like
+    @story.update_liked! current_user, params[:like_type]
+    redirect_to :back
+  end
+  
+  def favourite
+    type = params[:favourite_type]
+    if type == "add"
+      current_user.has_favorite @story
+    elsif type == "remove"
+      current_user.has_no_favorite @story
+    end
+    redirect_to :back
+  end
+  
+  protected
+  
+  def prepare_site
+    @site = Site.find(params[:site_id])
+  end
+  
+  def prepare_story
+    @story = @site.stories.find(params[:id])
+  end
+  
 end

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101021044203) do
+ActiveRecord::Schema.define(:version => 20101021065525) do
 
   create_table "comments", :force => true do |t|
     t.string   "title",            :limit => 50, :default => ""
@@ -24,6 +24,30 @@ ActiveRecord::Schema.define(:version => 20101021044203) do
   add_index "comments", ["commentable_id"], :name => "index_comments_on_commentable_id"
   add_index "comments", ["commentable_type"], :name => "index_comments_on_commentable_type"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
+
+  create_table "favorites", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "favorable_type", :limit => 30
+    t.integer  "favorable_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "likes", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "likeable_id"
+    t.string   "likeable_type", :limit => 32
+    t.integer  "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "likes", ["created_at"], :name => "index_likes_on_created_at"
+  add_index "likes", ["likeable_id"], :name => "index_likes_on_likeable_id"
+  add_index "likes", ["likeable_type"], :name => "index_likes_on_likeable_type"
+  add_index "likes", ["user_id", "likeable_id", "likeable_type"], :name => "index_likes_on_user_id_and_likeable_id_and_likeable_type", :unique => true
+  add_index "likes", ["user_id"], :name => "index_likes_on_user_id"
+  add_index "likes", ["value"], :name => "index_likes_on_value"
 
   create_table "sites", :force => true do |t|
     t.string   "name"

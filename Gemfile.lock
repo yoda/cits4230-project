@@ -18,6 +18,7 @@ GEM
     activeresource (2.3.10)
       activesupport (= 2.3.10)
     activesupport (2.3.10)
+    acts_as_favorite (0.1.2)
     annotate (2.4.0)
     autotest-fsevent (0.2.3)
       sys-uname
@@ -89,6 +90,7 @@ PLATFORMS
 DEPENDENCIES
   FeedFinder!
   ZenTest
+  acts_as_favorite
   annotate
   autotest-fsevent
   autotest-growl

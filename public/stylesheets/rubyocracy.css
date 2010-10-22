@@ -227,15 +227,21 @@ li.story div.story-vote, #story div.story-vote {
 li.story .story-vote, #story .story-vote {
   color: #555;
 }
-li.story .story-vote a, #story .story-vote a {
+li.story .story-vote a, #story .story-vote a, li.story .story-vote span, #story .story-vote span {
   font-weight: bold;
 }
-li.story .story-vote a.story-up-vote, #story .story-vote a.story-up-vote {
+li.story .story-vote .story-up-vote, #story .story-vote .story-up-vote {
   color: #196038;
 }
-li.story .story-vote a.story-down-vote, #story .story-vote a.story-down-vote {
+li.story .story-vote .story-down-vote, #story .story-vote .story-down-vote {
   color: #b70202;
 }
+
+.story-vote a.story-forget-vote {
+  font-weight: normal;
+  font-size: 0.8em;
+}
+
 li.story .story-summary, #story .story-summary {
   clear: both;
   margin: 0;

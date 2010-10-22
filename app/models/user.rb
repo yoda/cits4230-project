@@ -3,6 +3,9 @@ class User < ActiveRecord::Base
          :rememberable, :trackable, :validatable
 
   attr_accessible :email, :password, :password_confirmation, :remember_me
+  
+  acts_as_favorite_user
+  
 end
 
 
