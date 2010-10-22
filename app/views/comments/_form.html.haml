@@ -1,0 +1,20 @@
+- form_for commentable.comments.build, :url => [commentable.site, commentable, :comments  ], :id => "submit-comment" do |f|
+
+  %fieldset
+
+    %legend Add a Comment
+  
+    .row.string
+      = f.label :title, "Title:", :class => 'field-name'
+      = f.text_field :title, :class => 'text'
+      .clearfix
+      = ninja_errors f, :title, "Title"
+    .row.string
+      = f.label :comment, "Comment:", :class => 'field-name'
+      = f.text_area :comment, :class => 'text', :rows => 5, :cols => 70
+      .clearfix
+      = ninja_errors f, :comment, "Comment"
+    
+  %fieldset.buttons
+    %input{:type => "submit", :value => "Add this Comment", :id => "submit-comment-button"}
+    

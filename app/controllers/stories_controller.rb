@@ -1,11 +1,13 @@
 class StoriesController < ApplicationController
 
-  before_filter :authenticate_user!, :only => :like
-
+  before_filter :authenticate_user!, :only => [:like, :favourite]
+  
   before_filter :prepare_site
   before_filter :prepare_story
 
   def show
+    @story = Story.find(params[:id])
+    @story_comments = @story.comments.paginate( :page => params[:page], :per_page => 10)
   end
   
   def like
@@ -32,5 +34,5 @@ class StoriesController < ApplicationController
   def prepare_story
     @story = @site.stories.find(params[:id])
   end
-  
+
 end

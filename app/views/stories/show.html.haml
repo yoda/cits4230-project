@@ -6,22 +6,14 @@
   %h4 Comments on This Story
   
   %ul#comment-listing
-    - @story.comments.each_with_index do |comment, index|
+    #pagination= will_paginate @story_comments
+    - @story_comments.each_with_index do |comment, index|
       %li{:class => "comment"}
-        %p= comment.comment
-        .comment-metadata
-          Comment by
-          = link_to "#{comment.user.name}", comment.user, :class => 'comment-author'
-          about
-          %span.comment-posted-at== #{Time.now - comment.created_at} minutes ago
+        = render :partial => 'comments/comment', :locals => {:comment => comment }
+    #pagination= will_paginate @story_comments
   
-  %form#story-add-comment{:action => "#", :method => "get"}
-    %fieldset
-      %legend Add a Comment
-      .row.string
-        %label.field-name Your Comment:
-        %textarea{:name => "comment[contents]", :rows => 5, :cols => 70}
-        .clearfix
-        %p.field-errors
-    %fieldset.buttons
-      %input{:type => "submit", :value => "Add this Comment", :id => "submit-comment-button"}
+  - if user_signed_in?
+    = render :partial => 'comments/form', :locals => { :commentable => @story }
+  - else
+    %h4 Sign in to comment on this story
+
