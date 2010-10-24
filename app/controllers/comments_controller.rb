@@ -3,18 +3,15 @@ class CommentsController < ApplicationController
   before_filter :prepare_story, :only => [:create]
   before_filter :authenticate_user!
 
-  def new
-  end
-
   def create
-    @comment = @story.comments.create(params[:comment]) 
+    @comment      = @story.comments.build(params[:comment]) 
     @comment.user = current_user
     if @comment.save
       flash[:message] = "Sucessfully commented on the story"
     else
       flash[:message] = "Failure to comment on the story"
     end
-    render 'stories/show'
+    redirect_to @story
   end
 
   protected
