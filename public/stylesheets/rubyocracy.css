@@ -100,7 +100,7 @@ a:link {
 }
 #header #inner-header h1 a {
   display: block;
-  text-indent: -1000px;
+  text-indent: -100000px;
   background: url("../images/logo.png") center center no-repeat;
   width: 180px;
   height: 50px;
@@ -548,4 +548,13 @@ p#user-summary {
   border-top: 0.1em solid #dddddd;
   padding-top: 0.5em;
   margin-top: 0.5em;
+}
+
+.devise-links {
+  text-align: center;
+  font-size: 0.8em;
+}
+
+.devise-links a {
+  margin: 0 0.5em;
 }

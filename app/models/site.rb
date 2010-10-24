@@ -1,7 +1,7 @@
 class Site < ActiveRecord::Base
   
   belongs_to :owner, :class_name => "User"
-  has_many   :stories
+  has_many   :stories, :dependent => :destroy
   
   validates_presence_of :name, :feed_url, :url, :author_name
   
