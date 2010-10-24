@@ -1,0 +1,27 @@
+%h2 Sign in
+
+- form_for resource_name, resource, :url => session_path(resource_name) do |f|
+
+  %fieldset
+    .row.string
+      = f.label :email, "Your Email Address:", :class => 'field-name'
+      = f.text_field :email, :class => 'text'
+      .clearfix
+      = ninja_errors f, :email
+    .row.string
+      = f.label :password, "Your Password:", :class => 'field-name'
+      = f.password_field :password, :class => 'text'
+      .clearfix
+      = ninja_errors f, :password
+    
+    .row.string
+      %label.extended
+        = f.check_box :remember_me
+        Remember my login details.
+      .clearfix
+      = ninja_errors f, :remember_me
+      
+  %fieldset.buttons
+    %input{:type => "submit", :value => "Sign in", :id => "sign-in-button"}
+
+= render :partial => "shared/devise_links"
