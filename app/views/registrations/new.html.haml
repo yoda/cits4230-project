@@ -1,0 +1,30 @@
+%h2 Sign Up
+
+- form_for resource_name, resource, :url => registration_path(resource_name) do |f|
+
+  %fieldset
+  
+    %legend Your Account Details
+
+    .row.string
+      = f.label :email, "Email Address:", :class => 'field-name'
+      = f.text_field :email, :class => 'text'
+      .clearfix
+      = ninja_errors f, :email
+  
+    .row.string
+      = f.label :password, "Password:", :class => 'field-name'
+      = f.password_field :password, :class => 'text'
+      .clearfix
+      = ninja_errors f, :password
+  
+    .row.string
+      = f.label :password_confirmation, "Confirm your Password:", :class => 'field-name'
+      = f.password_field :password_confirmation, :class => 'text'
+      .clearfix
+      = ninja_errors f, :password_confirmation
+
+  %fieldset.buttons
+    %input{:type => "submit", :value => "Sign up", :id => "sign-up-button"}
+    
+= render :partial => "shared/devise_links"
