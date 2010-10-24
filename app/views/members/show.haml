@@ -1,0 +1,9 @@
+- if current_user.id == @user
+  %h2 Your Profile
+- else
+  %h2 Profile
+
+= link_to "Comments", list_comments_by_user_path(@user)
+= link_to "Sites", list_sites_by_user_path(@user)
+= link_to "Favorites", list_favorites_by_user_path(@user)
+

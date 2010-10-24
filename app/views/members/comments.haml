@@ -1,0 +1,9 @@
+- if current_user.id == @user
+  %h2 Comments by you
+- else
+  %h2 Comments by this user
+
+%h3 All Comments
+%ul.stories#top-stories= render :partial => 'comments/comment', :collection => @comments
+#pagination= will_paginate @comments
+

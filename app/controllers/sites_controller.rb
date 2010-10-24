@@ -9,8 +9,9 @@ class SitesController < ApplicationController
   def create
     @site = Site.new(params[:site])
     if @site.save
-      @story = @site.story
-      render 'stories/story.haml'
+      @site.update_feed
+      @story = @site.stories.paginate( :page => params[:page], :per_page => 10)
+      render 'stories/index'
     else
       render :action => "new"
     end

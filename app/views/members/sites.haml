@@ -1,0 +1,9 @@
+- if current_user.id == @user
+  %h2 Your Sites
+- else
+  %h2 Users Sites
+
+%h3 All Sites
+%ul.stories#top-stories= render :partial => 'sites/sites', :collection => @sites
+#pagination= will_paginate @sites
+

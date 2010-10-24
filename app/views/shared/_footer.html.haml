@@ -1,9 +1,9 @@
 #footer
   %ul#footer-nav
-    %li= link_to 'Home',          './index.html'
-    %li= link_to 'Your Profile',  './profile.html'
+    %li= link_to 'Home', root_path
+    - if user_signed_in?
+      %li= link_to 'Your Profile', member_path(current_user) 
     %li= link_to 'Your Favourites', './favourites.html'
-    %li= link_to 'Example Post',  './story.html'
   %p#footer-summary
     Rubyocracy - A project of CITS4230 Group F. All Rights Reserved. Site copyright 2010 onwards.
     %br
