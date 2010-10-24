@@ -1,0 +1,6 @@
+%h2 Sites
+
+%ul.stories#top-stories= render :partial => 'sites/site', :collection => @sites
+  
+      
+#pagination= will_paginate @sites

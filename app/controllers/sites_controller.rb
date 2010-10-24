@@ -2,6 +2,10 @@ class SitesController < ApplicationController
   
   before_filter :prepare_site, :only => [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!, :only => [:new, :create]
+
+  def index
+    @sites = Site.all.paginate( :page => params[:page], :per_page => 10)
+  end
   
   def new
     @site = Site.new
