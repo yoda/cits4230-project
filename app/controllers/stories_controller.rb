@@ -2,7 +2,6 @@ class StoriesController < ApplicationController
 
   before_filter :authenticate_user!, :only => [:like, :favourite]
   
-  before_filter :prepare_site
   before_filter :prepare_story
 
   def show
@@ -27,11 +26,12 @@ class StoriesController < ApplicationController
   protected
   
   def prepare_site
-    @site = Site.find(params[:site_id], :include => :categories)
+    @site = Site.find(params[:site_id])
   end
   
   def prepare_story
-    @story = @site.stories.find(params[:id])
+    prepare_site
+    @story = @site.stories.find(params[:id], :include => :categories)
   end
 
 end
