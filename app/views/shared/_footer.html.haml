@@ -4,10 +4,6 @@
     - if user_signed_in?
       %li= link_to 'Your Profile', member_path(current_user) 
       %li= link_to 'Your Favourites', list_favorites_by_user_path(current_user)
-    %li= link_to "RSS feed", params.merge(:format => :rss) 
+    %li= link_to "RSS feed", root_path(:format => 'rss')
   %p#footer-summary
     Rubyocracy - A project of CITS4230 Group F. All Rights Reserved. Site copyright 2010 onwards.
-    %br
-    = "Contact Us"
-    if you have any questions.
-    %br

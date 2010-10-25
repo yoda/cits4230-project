@@ -61,6 +61,12 @@ class Site < ActiveRecord::Base
     false
   end
   
+  def reset_feed!
+    self.feed_etag = nil
+    self.last_modified_at = nil
+    save
+  end
+  
   attr_reader :feed_choices
   
   def validate_feed_url

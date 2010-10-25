@@ -27,11 +27,11 @@ class StoriesController < ApplicationController
   protected
   
   def prepare_site
-    @site = Site.find(params[:site_id], :include => :categories)
+    @site = Site.find(params[:site_id])
   end
   
   def prepare_story
-    @story = @site.stories.find(params[:id])
+    @story = @site.stories.find(params[:id], :include => :categories)
   end
 
 end
