@@ -1,0 +1,6 @@
+%h2 Favorites
+
+%ul.stories#top-stories= render :partial => 'favorites/favorites', :collection => @favorites
+  
+      
+#pagination= will_paginate @favorites

@@ -1,9 +1,9 @@
 - if current_user.id == @user
-  %h2 Your Profile
+  %h2 Your Favorites
 - else
-  %h2 Profile
+  %h2 Favorites
 
-%h3 All Comments
-%ul.stories#top-stories= render :partial => 'comments/comment', :collection => @comments
-#pagination= will_paginate @comments
+%h3 All Favorites
+%ul.stories#top-stories= render :partial => 'favorites/favorite', :collection => @favorites
+#pagination= will_paginate @favorites
 

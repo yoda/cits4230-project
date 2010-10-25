@@ -1,0 +1,12 @@
+%li.story{:class => (@last_child ? "last" : nil)}
+  .story-inner
+    %h3
+      = link_to favorite.title, favorite.url, :class => 'story-title'
+    %br.clear
+    .story-nested-details
+      .story-meta-container
+        %p.story-meta
+          Favorited at
+          <span class='story-posted-at'>#{favorite.created_at}</span>.
+        .clearfix
+  .clearfix

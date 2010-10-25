@@ -12,12 +12,14 @@ class MembersController < ApplicationController
   end
 
   def list_sites_by_user
-    @sites = @user.sites.paginate( :page => params[:page], :per_page => 10)
+    temp = Site.all.collect { | item| item.owner_id == @user.id ? item : nil }
+    temp.compact!
+    @sites = temp.paginate( :page => params[:page], :per_page => 10)
     render 'sites'
   end
 
   def list_favorites_by_user
-    @sites = @user.favorites.paginate( :page => params[:page], :per_page => 10)
+    @favorites = (@user.favorites.map { | entry | entry.favorable_type.classify.constantize.find(entry.favorable_id) }).paginate( :page => params[:page], :per_page => 10)
     render 'favorites'
   end
 

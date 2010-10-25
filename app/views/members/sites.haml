@@ -4,6 +4,6 @@
   %h2 Users Sites
 
 %h3 All Sites
-%ul.stories#top-stories= render :partial => 'sites/sites', :collection => @sites
+%ul.stories#top-stories= render :partial => 'sites/site', :collection => @sites
 #pagination= will_paginate @sites
 
