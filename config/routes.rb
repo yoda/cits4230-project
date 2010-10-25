@@ -18,6 +18,7 @@ ActionController::Routing::Routes.draw do |map|
   map.list_favorites_by_user 'members/:id/favorites', :controller => 'members', :action => 'list_favorites_by_user', :conditions => {:method => :get}
 
 
+  map.catagorized 'catagories/:id/', :controller => 'rubyocracy', :action => 'categorized', :conditions => {:method => :get }
   
   map.root :controller => 'rubyocracy', :action => 'index'
 end

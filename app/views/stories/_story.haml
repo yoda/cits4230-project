@@ -11,7 +11,7 @@
         %ul
           %li.prefix Categories:
           - story.categories.each do |c|
-            %li= link_to c, '#', :class => 'story-category'
+            %li= link_to c, catagorized_path(c.name), :class => 'story-category'
       .story-meta-container
         %p.story-meta
           Posted on
