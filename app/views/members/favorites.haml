@@ -3,7 +3,10 @@
 - else
   %h2 Favorites
 
-%h3 All Favorites
+%h5 All Favorites
 %ul.stories#top-stories= render :partial => 'favorites/favorite', :collection => @favorites
+- if @favorites.empty?
+  %br
+  %h4 There are no favorites.
 #pagination= will_paginate @favorites
 

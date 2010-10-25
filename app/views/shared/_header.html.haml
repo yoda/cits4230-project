@@ -3,6 +3,7 @@
     %h1= link_to 'Rubyocracy', root_path
     %ul#header-primary-navigation
       - if user_signed_in?
+        %li= "Signed in as (#{current_user.email})"
         %li= link_to "Your Profile", member_path(current_user)
         %li= link_to "Sign out", destroy_user_session_path
       - else

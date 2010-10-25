@@ -3,7 +3,10 @@
 - else
   %h2 Users Sites
 
-%h3 All Sites
+%h5 All Sites
 %ul.stories#top-stories= render :partial => 'sites/site', :collection => @sites
+- if @sites.empty?
+  %br
+  %h4 There are no sites.
 #pagination= will_paginate @sites
 

@@ -3,7 +3,10 @@
 - else
   %h2 Comments by this user
 
-%h3 All Comments
+%h5 All Comments
 %ul.stories#top-stories= render :partial => 'comments/comment', :collection => @comments
+- if @comments.empty?
+  %br
+  %h4 There are no comments.
 #pagination= will_paginate @comments
 
