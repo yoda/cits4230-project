@@ -9,6 +9,10 @@ class User < ActiveRecord::Base
   has_many :likes
   has_many :favorites
   
+  def display_name
+    name.present? ? name : "User ##{self.id}"
+  end
+  
 end
 
 

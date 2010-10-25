@@ -1,16 +1,12 @@
-- if current_user.id == @user
+- if current_user == @user
   %h2 Comments by you
 - else
-  %h2= h("Comments by #{@user.name}")
+  %h2 Comments by #{@user.display_name}
 
-%h5 All Comments
-%br
 %ul#comment-listing
   - @comments.each_with_index do |comment, index|
     %li{:class => "comment"}
       = render :partial => 'comments/comment', :locals => {:comment => comment }
-  - if @comments.empty?
-    %br
-    %h4 There are no comments.
+%p.empty There are no comments.
 #pagination= will_paginate @comments
 

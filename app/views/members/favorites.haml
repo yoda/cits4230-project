@@ -1,12 +1,10 @@
-- if current_user.id == @user
-  %h2 Your Favorites
+- if current_user == @user
+  %h2 Your Favourites
 - else
-  %h2= h("#{@user.name.pluralize} Favorites")
-
-%h5 All Favorites
-%ul.stories#top-stories= render :partial => 'favorites/favorite', :collection => @favorites
+  %h2 #{@user.display_name}'s Favourites
+  
+%ul.stories#top-stories= render :partial => 'favorites/favorite', :collection => @favorites.map(&:favorable)
 - if @favorites.empty?
-  %br
-  %h4 There are no favorites.
+  %p.empty There are no favourites.
 #pagination= will_paginate @favorites
 

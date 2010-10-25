@@ -589,3 +589,15 @@ p#user-summary {
 .devise-links a {
   margin: 0 0.5em;
 }
+
+p.empty, li.empty {
+  text-align: center;
+  font-size: 1.1em;
+  color: #444;
+}
+
+h3 {
+  font-size: 1.4em;
+  color: #000;
+  font-weight: bold;
+}

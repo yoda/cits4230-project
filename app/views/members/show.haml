@@ -4,19 +4,13 @@
 
   %p#user-summary
     Member of Rubyocracy for <span class='user-member-for'>#{time_ago_in_words(@user.created_at)}</span>.
-
-  #content-navigation
-    %ul#header-tertiary-navigation
-      %li= link_to "Comments", list_comments_by_user_path(@user)
-      %li= link_to "Sites", list_sites_by_user_path(@user)
-      %li= link_to "Favorites", list_favorites_by_user_path(@user)
       
   #user-statistics
     %ul
       %li.stat-respect
         .inner
           %span.name Respect
-          %span.value ?
+          %span.value Unknown
       %li.stat-favourites
         .inner
           %span.name Favourites
@@ -32,14 +26,13 @@
     .clearfix
   
   #user-information
-
     %dl#user-links
-      %dt GitHub Account:
-      %dd= link_to "Sutto on GitHub", "http://github.com/Sutto"
-      %dt Blog URL:
-      %dd= link_to "Ninja's on a Penny Farthing", "http://blog.ninjahideout.com/"
-      %dt Stack Overflow:
-      %dd.last-link= link_to "Sutto"
+      %dt Comments:
+      %dd= link_to "View All", list_comments_by_user_path(@user)
+      %dt Sites:
+      %dd= link_to "View All", list_sites_by_user_path(@user)
+      %dt Favourites:
+      %dd= link_to "View All", list_favorites_by_user_path(@user)
   
   #user-items
     .panel
@@ -47,11 +40,15 @@
       %ul
         - @recent_liked_items.each do |liked|
           %li= link_to(h("#{liked.title}"), [liked.site, liked]) 
+        - if @recent_liked_items.blank?
+          %li.empty No recently liked items.
     .panel
       %h4 Recent Favourited Items
       %ul
         - @recent_favorites.each do |favorite|
           %li= link_to(h("#{favorite.title}"), [favorite.site, favorite]) 
+        - if @recent_favorites.blank?
+          %li.empty No recently favourited items.
           
     .clearfix
 
