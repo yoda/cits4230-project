@@ -4,10 +4,12 @@ class SitesController < ApplicationController
   before_filter :authenticate_user!, :only => [:new, :create]
 
   def index
+    @page_title = 'All Sites'
     @sites = Site.all.paginate( :page => params[:page], :per_page => 10)
   end
   
   def new
+    @page_title = 'Add a new site'
     @site = Site.new
   end
   
@@ -22,6 +24,7 @@ class SitesController < ApplicationController
   end
   
   def show
+    @page_title = 'Site'
     @stories = @site.stories.paginate(:page => params[:page], :per_page => 25)
   end
   
