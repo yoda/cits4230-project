@@ -16,6 +16,8 @@ class Story < ActiveRecord::Base
 
   acts_as_taggable_on :categories
 
+  acts_as_indexed :fields => [:normalized_content]
+
   before_save :generate_abstract
   before_save :generate_categories
 
@@ -38,12 +40,16 @@ class Story < ActiveRecord::Base
     end
   end
   
+  def normalized_content
+    Nokogiri::HTML(content.to_s).text.strip
+  end
+  
   protected
   
   def normalize_html(html)
     doc = Nokogiri::HTML(html.to_s.strip)
-    normalize_attributes 'a', 'href'
-    normalize_attributes 'img', 'src'
+    normalize_attributes doc, 'a', 'href'
+    normalize_attributes doc, 'img', 'src'
     # TODO: Search for images, download and resize here.
     doc.search('body').inner_html
   end

@@ -58,4 +58,9 @@ module ApplicationHelper
     end
   end
   
+  def page_title
+    @page_title ||= nil
+    [@page_title, "Rubyocracy"].reject(&:blank?).join(" | ")
+  end
+  
 end
