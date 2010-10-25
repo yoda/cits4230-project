@@ -7,7 +7,7 @@ class Site < ActiveRecord::Base
   
   attr_accessible :name, :feed_url, :url, :self_authored, :author_name
   
-  attr_accessor :self_authored
+  attr_reader :self_authored
 
   named_scope :approved, :conditions => {:approved => true}
   
@@ -66,6 +66,16 @@ class Site < ActiveRecord::Base
     self.last_modified_at = nil
     save
   end
+  
+  def self_authored=(value)
+    if value.blank?
+      @self_authored = nil
+    else
+      @self_authored = ActiveRecord::ConnectionAdapters::Column.value_to_boolean(value.to_s)
+    end
+  end
+  
+  alias self_authored? self_authored
   
   attr_reader :feed_choices
   

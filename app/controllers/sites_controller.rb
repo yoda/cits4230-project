@@ -13,7 +13,7 @@ class SitesController < ApplicationController
   
   def create
     @site = Site.new(params[:site])
-    @site.owner_id = current_user
+    @site.owner = current_user if @site.self_authored?
     if @site.save
       redirect_to @site
     else

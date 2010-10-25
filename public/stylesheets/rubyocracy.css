@@ -637,3 +637,59 @@ h4 {
   font-weight: bold;
   font-size: 1.2em;
 }
+
+/* RESET! */
+
+#container #content .story-summary div, #container #content .story-summary span, #container #content .story-summary object, #container #content .story-summary iframe, #container #content .story-summary h1, #container #content .story-summary h2, #container #content .story-summary h3, #container #content .story-summary h4, #container #content .story-summary h5, #container #content .story-summary h6, #container #content .story-summary p,
+#container #content .story-summary pre, #container #content .story-summary a, #container #content .story-summary abbr, #container #content .story-summary acronym, #container #content .story-summary address, #container #content .story-summary code, #container #content .story-summary del, #container #content .story-summary dfn, #container #content .story-summary em, #container #content .story-summary img,
+#container #content .story-summary dl, #container #content .story-summary dt, #container #content .story-summary dd, #container #content .story-summary ol, #container #content .story-summary ul, #container #content .story-summary li, #container #content .story-summary fieldset, #container #content .story-summary form, #container #content .story-summary label, #container #content .story-summary legend, #container #content .story-summary caption, #container #content .story-summary tbody, #container #content .story-summary tfoot, #container #content .story-summary thead, #container #content .story-summary tr {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline;
+  float: none;
+}
+#container #content .story-summary table {
+  border-collapse: separate;
+  border-spacing: 0;
+  vertical-align: middle;
+}
+#container #content .story-summary caption, #container #content .story-summary th, #container #content .story-summary td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+#container #content .story-summary q, #container #content .story-summary blockquote {
+  quotes: "" "";
+}
+#container #content .story-summary q:before, #container #content .story-summary q:after, #container #content .story-summary blockquote:before, #container #content .story-summary blockquote:after {
+  content: "";
+}
+#container #content .story-summary a img {
+  border: none;
+}
+
+#container #content .story-summary h1, #container #content .story-summary h2, #container #content .story-summary h3, #container #content .story-summary h4, #container #content .story-summary h5, #container #content .story-summary h6
+{
+  font-weight: bold;
+  margin: 0 0 0.5em;
+} 
+
+#container #content .story-summary strong {
+  font-weight: bold;
+}
+
+#container #content .story-summary p {
+  margin: 0.25em 0;
+}
+
+#container #content .story-summary div.code, #container #content .story-summary code {
+  background-color: #EEE;
+  color: #333;
+  font-style: monospace;
+}

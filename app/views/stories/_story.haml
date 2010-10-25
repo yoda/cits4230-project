@@ -6,7 +6,7 @@
     %br.clear
     .story-preview= linked_screenshot story
     .story-nested-details
-      .story-summary= (defined?(full) && full) ? story.content.html_safe : abstract_for(story)
+      .story-summary~ (defined?(full) && full) ? story.content.html_safe : abstract_for(story)
       .story-categories
         %ul
           %li.prefix Categories:

@@ -42,8 +42,8 @@ class Story < ActiveRecord::Base
   
   def normalize_html(html)
     doc = Nokogiri::HTML(html.to_s.strip)
-    normalize_attributes 'a', 'href'
-    normalize_attributes 'img', 'src'
+    normalize_attributes doc, 'a', 'href'
+    normalize_attributes doc, 'img', 'src'
     # TODO: Search for images, download and resize here.
     doc.search('body').inner_html
   end
