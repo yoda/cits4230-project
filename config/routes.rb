@@ -21,6 +21,7 @@ ActionController::Routing::Routes.draw do |map|
   map.add    'search', :controller => 'search', :action => 'create', :conditions => {:method => :post}
 
 
+  map.catagorized 'catagories/:id/', :controller => 'rubyocracy', :action => 'categorized', :conditions => {:method => :get }
   
   map.root :controller => 'rubyocracy', :action => 'index'
 end
