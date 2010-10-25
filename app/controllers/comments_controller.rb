@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
     else
       flash[:message] = "Failure to comment on the story"
     end
-    redirect_to @story
+    redirect_to [@story.site, @story]
   end
 
   protected

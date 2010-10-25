@@ -4,6 +4,7 @@
       = link_to favorite.title, favorite.url, :class => 'story-title'
     %br.clear
     .story-nested-details
+      = link_to "Comments", [favorite.site, favorite]
       .story-meta-container
         %p.story-meta
           Favorited at
