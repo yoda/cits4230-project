@@ -17,7 +17,6 @@ class SitesController < ApplicationController
     @site = Site.new(params[:site])
     @site.owner_id = current_user
     if @site.save
-      @site.update_feed!
       redirect_to @site
     else
       render :action => "new"
@@ -26,6 +25,7 @@ class SitesController < ApplicationController
   
   def show
     @page_title = 'Site'
+    @stories = @site.stories.paginate(:page => params[:page], :per_page => 25)
   end
   
   protected

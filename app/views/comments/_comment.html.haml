@@ -1,4 +1,4 @@
-%h5= link_to h(comment.title), [comment.commentable_type.classify.constantize.find(comment.commentable_id).site, comment.commentable_type.classify.constantize.find(comment.commentable_id)]
+%h5= link_to h(comment.title), [comment.commentable.site, comment.commentable]
 %p= h(comment.comment)
 .comment-metadata
   Comment by

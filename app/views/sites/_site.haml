@@ -1,7 +1,7 @@
+- full = false unless defined?(false)
 %li.story{:class => (@last_child ? "last" : nil)}
   .story-inner
-    %h3
-      = link_to h(site.name), site.url, :class => 'story-title'
+    %h3= link_to h(site.name), (full ? site.url : site), :class => 'story-title'
     %br.clear
     .story-nested-details
       .story-meta-container
@@ -9,3 +9,8 @@
           Added <span class='story-posted-at'>#{time_ago_in_words site.created_at}</span> ago.
         .clearfix
   .clearfix
+
+- if defined?(full) && full
+  %h4 Stories for this site
+  %ul.stories#site-stories= render :partial => 'stories/story', :collection => @stories
+  #pagination= will_paginate @stories

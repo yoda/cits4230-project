@@ -31,6 +31,7 @@ gem 'acts_as_favorite'
 
 gem 'acts-as-taggable-on'
 gem 'pismo', :git => "git://github.com/Sutto/pismo.git"
+gem 'acts_as_indexed'
 
 group :test do
   gem 'ZenTest', :require => nil
