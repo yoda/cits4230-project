@@ -24,11 +24,11 @@
       %li.stat-likes
         .inner
           %span.name Likes
-          %span.value ?
+          %span.value= @num_likes
       %li.stat-dislikes
         .inner
           %span.name Dislikes
-          %span.value ?
+          %span.value= @num_dislikes
     .clearfix
   
   #user-information
@@ -45,13 +45,13 @@
     .panel
       %h4 Recent Liked Items
       %ul
-        - 10.times do |i|
-          %li= link_to "Liked Item #{i}"
+        - @recent_liked_items.each do |liked|
+          %li= link_to(h("#{liked.title}"), [liked.site, liked]) 
     .panel
       %h4 Recent Favourited Items
       %ul
-        - 10.times do |i|
-          %li= link_to "Favorited Item #{i}"
+        - @recent_favorites.each do |favorite|
+          %li= link_to(h("#{favorite.title}"), [favorite.site, favorite]) 
           
     .clearfix
 

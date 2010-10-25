@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   acts_as_favorite_user
 
   has_many :comments
+  has_many :likes
+  has_many :favorites
   
 end
 
