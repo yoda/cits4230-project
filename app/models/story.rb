@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class Story < ActiveRecord::Base
   acts_as_commentable
   blakstar_like
@@ -16,10 +18,11 @@ class Story < ActiveRecord::Base
 
   acts_as_taggable_on :categories
 
-  acts_as_indexed :fields => [:normalized_content]
+  acts_as_indexed :fields => [:normalized_content, :humanized_category_names]
 
-  before_save :generate_abstract
-  before_save :generate_categories
+  before_save  :generate_abstract
+  before_save  :generate_categories
+  after_create :cache_pinky_url!
 
   def generate_abstract
     abstract = Nokogiri::HTML(self.content.to_s).css('p').first.try(:to_html)
@@ -30,6 +33,10 @@ class Story < ActiveRecord::Base
   def generate_categories
     keywords = Pismo::Document.new(content.to_s).keywords[0, 5].map(&:first)
     self.category_list = (keywords + ["ruby"]).compact.uniq
+  end
+  
+  def humanized_category_names
+    Array(category_list).join(", ")
   end
   
   def content=(value)
@@ -47,6 +54,12 @@ class Story < ActiveRecord::Base
   def self.popular_keywords_from(scope, max = 10)
     counts = scope.tag_counts_on :categories
     counts.sort_by(&:count).reverse[0, max].map(&:name)
+  end
+  
+  def cache_pinky_url!
+    uri = "http://pinkyurl.com/i?url=#{URI.escape(url)}&out-format=png&resize=160&crop=160x140"
+    open(uri).read rescue nil
+    nil
   end
   
   protected
