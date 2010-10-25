@@ -4,9 +4,11 @@
   %h2 Comments by #{@user.display_name}
 
 %ul#comment-listing
-  - @comments.each_with_index do |comment, index|
-    %li{:class => "comment"}
-      = render :partial => 'comments/comment', :locals => {:comment => comment }
-%p.empty There are no comments.
+  - @comments.each do |comment|
+    %li{:class => "comment"}= render :partial => 'comments/comment', :locals => {:comment => comment }
+
+- if @comments.empty?
+  %p.empty There are no comments.
+
 #pagination= will_paginate @comments
 
