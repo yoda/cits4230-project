@@ -41,6 +41,7 @@ GEM
     babosa (0.2.0)
     builder (2.1.2)
     cancan (1.4.0)
+    carrierwave (0.4.10)
     chronic (0.3.0)
     columnize (0.3.1)
     crack (0.1.8)
@@ -89,6 +90,7 @@ GEM
     rake (0.8.7)
     rcov (0.9.9)
     redgreen (1.2.2)
+    rmagick (2.13.1)
     rr (1.0.0)
     ruby-debug (0.10.3)
       columnize (>= 0.1)
@@ -124,6 +126,7 @@ DEPENDENCIES
   autotest-growl
   autotest-rails
   cancan
+  carrierwave (= 0.4.10)
   devise (= 1.0.8)
   feedzirra
   ffaker
@@ -137,6 +140,7 @@ DEPENDENCIES
   rails (= 2.3.10)
   rcov
   redgreen
+  rmagick
   rr
   ruby-debug
   shoulda

@@ -5,7 +5,7 @@ class SitesController < ApplicationController
 
   def index
     @page_title = 'All Sites'
-    @sites = Site.all.paginate( :page => params[:page], :per_page => 10)
+    @sites = Site.paginate( :page => params[:page], :per_page => 10)
   end
   
   def new
@@ -26,7 +26,7 @@ class SitesController < ApplicationController
   
   def show
     @page_title = "Viewing Site: #{@site.name}"
-    @stories = @site.stories.paginate(:page => params[:page], :per_page => 25)
+    @stories = @site.ordered.stories.paginate(:page => params[:page], :per_page => 25)
   end
   
   protected

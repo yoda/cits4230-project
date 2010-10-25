@@ -33,6 +33,9 @@ gem 'acts-as-taggable-on'
 gem 'pismo', :git => "git://github.com/Sutto/pismo.git"
 gem 'acts_as_indexed'
 
+gem 'rmagick', :require => 'RMagick'
+gem 'carrierwave', '0.4.10'
+
 group :test do
   gem 'ZenTest', :require => nil
   gem 'shoulda'

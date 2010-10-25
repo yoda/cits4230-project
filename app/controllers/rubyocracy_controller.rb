@@ -21,7 +21,7 @@ class RubyocracyController < ApplicationController
   end
 
   def categorized
-    @stories = Story.tagged_with(params[:id]).paginate :page => params[:page], :include => [:site, :categories], :per_page => 20
+    @stories = Story.ordered.tagged_with(params[:id]).paginate :page => params[:page], :include => [:site, :categories], :per_page => 20
   end
 
 end
