@@ -1,11 +1,58 @@
-- if current_user.id == @user.id
-  %h2 Your Profile
-- else
-  %h2= h("#{@user.name.pluralize} Profile")
+%h2= h(@user.name)
 
-#header
-  %ul#header-secondary-navigation
-    %li= link_to "Comments", list_comments_by_user_path(@user)
-    %li= link_to "Sites", list_sites_by_user_path(@user)
-    %li= link_to "Favorites", list_favorites_by_user_path(@user)
+#user-profile
 
+  %p#user-summary
+    Member of Rubyocracy for <span class='user-member-for'>#{time_ago_in_words(@user.created_at)}</span>.
+
+  #content-navigation
+    %ul#header-tertiary-navigation
+      %li= link_to "Comments", list_comments_by_user_path(@user)
+      %li= link_to "Sites", list_sites_by_user_path(@user)
+      %li= link_to "Favorites", list_favorites_by_user_path(@user)
+      
+  #user-statistics
+    %ul
+      %li.stat-respect
+        .inner
+          %span.name Respect
+          %span.value ?
+      %li.stat-favourites
+        .inner
+          %span.name Favourites
+          %span.value= @user.favorites.count
+      %li.stat-likes
+        .inner
+          %span.name Likes
+          %span.value ?
+      %li.stat-dislikes
+        .inner
+          %span.name Dislikes
+          %span.value ?
+    .clearfix
+  
+  #user-information
+
+    %dl#user-links
+      %dt GitHub Account:
+      %dd= link_to "Sutto on GitHub", "http://github.com/Sutto"
+      %dt Blog URL:
+      %dd= link_to "Ninja's on a Penny Farthing", "http://blog.ninjahideout.com/"
+      %dt Stack Overflow:
+      %dd.last-link= link_to "Sutto"
+  
+  #user-items
+    .panel
+      %h4 Recent Liked Items
+      %ul
+        - 10.times do |i|
+          %li= link_to "Liked Item #{i}"
+    .panel
+      %h4 Recent Favourited Items
+      %ul
+        - 10.times do |i|
+          %li= link_to "Favorited Item #{i}"
+          
+    .clearfix
+
+  .clearfix

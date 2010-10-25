@@ -90,6 +90,13 @@ a:link {
   color: white;
   text-align: center;
 }
+
+#content-navigation {
+  width: 100%;
+  color: white;
+  text-align: center;
+}
+
 #header #inner-header {
   width: 960px;
   margin: 0 auto;
@@ -134,6 +141,30 @@ a:link {
   border-bottom: 0.15em solid #4c1112;
 }
 #header ul#header-secondary-navigation li {
+  margin: 0 1em;
+  font-size: 0.8em;
+}
+
+#content-navigation ul#header-tertiary-navigation, #content-navigation ul#header-primary-navigation {
+  display: block;
+  list-style: none;
+}
+#content-navigation ul#header-tertiary-navigation li, #content-navigation ul#header-primary-navigation li {
+  display: inline;
+  font-weight: bold;
+}
+#content-navigation ul#header-tertiary-navigation li a, #content-navigation ul#header-primary-navigation li a {
+  color: #344d99;
+}
+#content-navigation ul#header-tertiary-navigation li a:hover, #content-navigation ul#header-primary-navigation li a:hover {
+  color: #ebcaaa;
+}
+#content-navigation ul#header-tertiary-navigation {
+  padding: 0.4em 0 0.5em;
+  border-top: 0.15em solid #4c1112;
+  border-bottom: 0.15em solid #4c1112;
+}
+#content-navigation ul#header-tertiary-navigation li {
   margin: 0 1em;
   font-size: 0.8em;
 }
