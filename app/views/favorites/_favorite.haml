@@ -1,7 +1,7 @@
 %li.story{:class => (@last_child ? "last" : nil)}
   .story-inner
     %h3
-      = link_to favorite.title, favorite.url, :class => 'story-title'
+      = link_to h(favorite.title), favorite.url, :class => 'story-title'
     %br.clear
     .story-nested-details
       = link_to "Comments", [favorite.site, favorite]

@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   devise :registerable, :database_authenticatable, :rememberable, :trackable, :validatable
 
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name
   
   acts_as_favorite_user
 
@@ -15,6 +15,7 @@ end
 # Table name: users
 #
 #  id                   :integer         not null, primary key
+#  name                 :string(255)     default(""), not null
 #  email                :string(255)     default(""), not null
 #  encrypted_password   :string(128)     default(""), not null
 #  password_salt        :string(255)     default(""), not null

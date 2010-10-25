@@ -1,7 +1,7 @@
 - if current_user.id == @user
   %h2 Your Favorites
 - else
-  %h2 Favorites
+  %h2= h("#{@user.name.pluralize} Favorites")
 
 %h5 All Favorites
 %ul.stories#top-stories= render :partial => 'favorites/favorite', :collection => @favorites

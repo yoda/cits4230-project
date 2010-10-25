@@ -1,7 +1,7 @@
-- if current_user.id == @user
+- if current_user.id == @user.id
   %h2 Your Profile
 - else
-  %h2 Profile
+  %h2= h("#{@user.name.pluralize} Profile")
 
 #header
   %ul#header-secondary-navigation

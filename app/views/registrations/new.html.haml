@@ -11,6 +11,12 @@
       = f.text_field :email, :class => 'text'
       .clearfix
       = ninja_errors f, :email
+
+    .row.string
+      = f.label :name, "Alias:", :class => 'field-name'
+      = f.text_field :name, :class => 'text'
+      .clearfix
+      = ninja_errors f, :name
   
     .row.string
       = f.label :password, "Password:", :class => 'field-name'

@@ -1,7 +1,7 @@
 %li.story{:class => (@last_child ? "last" : nil)}
   .story-inner
     %h3
-      = link_to story.title, [story.site, story], :class => 'story-title'
+      = link_to h(story.title), [story.site, story], :class => 'story-title'
     -# = link_to '12 comments', './story.html#comments', :class => 'story-comments'
     .story-vote= story_liked_info story
     %br.clear
@@ -11,7 +11,7 @@
       .story-meta-container
         %p.story-meta
           Posted on
-          = link_to story.site.name, story.site.url
+          = link_to h(story.site.name), story.site.url
           about <span class='story-posted-at'>#{time_ago_in_words story.posted_at} ago</span>.
         %p.story-favourites
           Favourited by
