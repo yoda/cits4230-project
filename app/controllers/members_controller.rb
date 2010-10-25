@@ -12,7 +12,7 @@ class MembersController < ApplicationController
   end
 
   def list_sites_by_user
-    temp = Site.all.collect { | item| item.owner_id == @user.id ? item : nil }
+    temp = Site.all.collect { | item| item.owner_id == @user.id ? nil : item }
     temp.compact!
     @sites = temp.paginate( :page => params[:page], :per_page => 10)
     render 'sites'

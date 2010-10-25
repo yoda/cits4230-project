@@ -13,6 +13,7 @@ class SitesController < ApplicationController
   
   def create
     @site = Site.new(params[:site])
+    @site.owner_id = current_user
     if @site.save
       @site.update_feed!
       redirect_to @site
