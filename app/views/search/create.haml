@@ -1,0 +1,17 @@
+%h2 Search results for '#{h params[:query]}'
+%hr
+= render :partial => 'form'
+%hr
+%h3 All Search Results
+
+- if @other_keywords.present?
+  .story-categories
+    %ul
+      %li.prefix You may also like:
+      - @other_keywords.each do |keyword|
+        %li= link_to keyword, catagorized_path(keyword), :class => 'story-category'
+
+- if @stories.blank?
+  %p.empty No Results Found.
+
+%ul.stories#found-stories= render :partial => 'stories/story', :collection => @stories

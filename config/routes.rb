@@ -16,6 +16,9 @@ ActionController::Routing::Routes.draw do |map|
   map.list_comments_by_user 'members/:id/comments', :controller => 'members', :action => 'list_comments_by_user', :conditions => {:method => :get}
   map.list_sites_by_user 'members/:id/sites', :controller => 'members', :action => 'list_sites_by_user', :conditions => {:method => :get}
   map.list_favorites_by_user 'members/:id/favorites', :controller => 'members', :action => 'list_favorites_by_user', :conditions => {:method => :get}
+  
+  map.search 'search', :controller => 'search', :action => 'new', :conditions => {:method => :get}
+  map.add    'search', :controller => 'search', :action => 'create', :conditions => {:method => :post}
 
 
   map.catagorized 'catagories/:id/', :controller => 'rubyocracy', :action => 'categorized', :conditions => {:method => :get }

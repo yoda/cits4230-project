@@ -1,0 +1,9 @@
+- form_tag search_path do
+  
+  %fieldset
+    .row.string
+      = label_tag :query, "Your Search:", :class => 'field-name'
+      = text_field_tag :query, params[:query], :class => 'text'
+      
+  %fieldset.buttons
+    %input{:type => "submit", :value => "Search", :id => "search-button"}
