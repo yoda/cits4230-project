@@ -1,7 +1,7 @@
 %li.story{:class => (@last_child ? "last" : nil)}
   .story-inner
     %h3
-      = link_to h(story.title), [story.site, story], :class => 'story-title'
+      = link_to escape_once(story.title), [story.site, story], :class => 'story-title'
     .story-vote= story_liked_info story
     %br.clear
     .story-preview= linked_screenshot story

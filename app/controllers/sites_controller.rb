@@ -26,7 +26,7 @@ class SitesController < ApplicationController
   
   def show
     @page_title = "Viewing Site: #{@site.name}"
-    @stories = @site.ordered.stories.paginate(:page => params[:page], :per_page => 25)
+    @stories = @site.stories.ordered.paginate(:page => params[:page], :per_page => 25)
   end
   
   protected

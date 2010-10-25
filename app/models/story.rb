@@ -68,14 +68,28 @@ class Story < ActiveRecord::Base
     doc = Nokogiri::HTML(html.to_s.strip)
     normalize_attributes doc, 'a', 'href'
     normalize_attributes doc, 'img', 'src'
-    # TODO: Search for images, download and resize here.
+    normalize_images doc
     doc.search('body').inner_html
   end
   
+  def normalize_images(doc)
+    doc.search('img').each do |img|
+      src = img['src']
+      if src.present? && src !~ /&\//
+        image = Image.from_url(src)
+        img['src'] = image.url if image.present?
+      end
+    end
+  end
+  
   def normalize_attributes(doc, selector, field)
-    doc.search(selector) do |item|
-      href = link[field].to_s
-      link[field] = File.join(site.url, href) if href.present? && href =~ /^\//
+    doc.search(selector).each do |item|
+      href = item[field].to_s
+      url = URI.parse(url).merge(URI.parse("/")).to_s rescue nil
+      if href.present? && href =~ /^\// && url.present?
+        full_url = File.join(url, href)
+        item[field] = full_url
+      end
     end
   end
   
