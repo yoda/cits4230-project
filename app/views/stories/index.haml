@@ -9,6 +9,5 @@
     = link_to '(hide)', '#', :id => 'hide-introduction'
 
 %ul.stories#top-stories= render :partial => 'stories/story', :collection => @stories
-  
-      
+        
 #pagination= will_paginate @stories
