@@ -9,7 +9,7 @@
     %ul
       %li.prefix You may also like:
       - @other_keywords.each do |keyword|
-        %li= link_to keyword, '#', :class => 'story-category'
+        %li= link_to keyword, catagorized_path(keyword), :class => 'story-category'
 
 - if @stories.blank?
   %p.empty No Results Found.
