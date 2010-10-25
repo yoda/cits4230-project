@@ -6,7 +6,6 @@
     .story-nested-details
       .story-meta-container
         %p.story-meta
-          Added at
-          <span class='story-posted-at'>#{site.created_at}</span>.
+          Added <span class='story-posted-at'>#{time_ago_in_words site.created_at}</span> ago.
         .clearfix
   .clearfix

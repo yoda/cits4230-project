@@ -14,6 +14,8 @@ class Story < ActiveRecord::Base
   
   named_scope :ordered, :order => 'posted_at DESC'
 
+  acts_as_taggable_on :categories
+
   before_save :generate_abstract
 
   def generate_abstract

@@ -1,5 +1,5 @@
 # A sample Gemfile
-source "http://rubygems.org"
+source 'http://rubygems.org'
 
 gem 'sqlite3-ruby', :require => 'sqlite3'
 
@@ -28,6 +28,9 @@ gem 'httparty'
 gem 'nokogiri'
 
 gem 'acts_as_favorite'
+
+gem 'acts-as-taggable-on'
+gem 'pismo', :git => "git://github.com/peterc/pismo.git"
 
 group :test do
   gem 'ZenTest', :require => nil
