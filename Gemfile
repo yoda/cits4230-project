@@ -30,7 +30,7 @@ gem 'nokogiri'
 gem 'acts_as_favorite'
 
 gem 'acts-as-taggable-on'
-gem 'pismo', :git => "git://github.com/peterc/pismo.git"
+gem 'pismo', :git => "git://github.com/Sutto/pismo.git"
 
 group :test do
   gem 'ZenTest', :require => nil

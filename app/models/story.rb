@@ -17,11 +17,17 @@ class Story < ActiveRecord::Base
   acts_as_taggable_on :categories
 
   before_save :generate_abstract
+  before_save :generate_categories
 
   def generate_abstract
     abstract = Nokogiri::HTML(self.content.to_s).css('p').first.try(:to_html)
     abstract = content.split(/\n+/).first if abstract.blank?
     self.abstract = abstract
+  end
+  
+  def generate_categories
+    keywords = Pismo::Document.new(content.to_s).keywords[0, 5].map(&:first)
+    self.category_list = (keywords + ["ruby"]).compact.uniq
   end
   
   def content=(value)

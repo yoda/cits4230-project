@@ -6,7 +6,6 @@ class StoriesController < ApplicationController
   before_filter :prepare_story
 
   def show
-    @story = Story.find(params[:id])
     @story_comments = @story.comments.paginate( :page => params[:page], :per_page => 10)
   end
   
@@ -28,7 +27,7 @@ class StoriesController < ApplicationController
   protected
   
   def prepare_site
-    @site = Site.find(params[:site_id])
+    @site = Site.find(params[:site_id], :include => :categories)
   end
   
   def prepare_story

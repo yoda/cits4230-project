@@ -1,12 +1,6 @@
 GIT
-  remote: git://github.com/kjbekkelund/FeedFinder.git
-  revision: ac121d6dbe88fa0d929ea488485edb335ddd8440
-  specs:
-    FeedFinder (0.2.0)
-
-GIT
-  remote: git://github.com/peterc/pismo.git
-  revision: 076ec52f25c5b973839c7f0bfc4badf9e1d9c0f9
+  remote: git://github.com/Sutto/pismo.git
+  revision: 47e51f0bd40bd052c3c7911d12031baca882c25e
   specs:
     pismo (0.7.0)
       chronic
@@ -14,6 +8,12 @@ GIT
       jeweler
       nokogiri
       sanitize
+
+GIT
+  remote: git://github.com/kjbekkelund/FeedFinder.git
+  revision: ac121d6dbe88fa0d929ea488485edb335ddd8440
+  specs:
+    FeedFinder (0.2.0)
 
 GEM
   remote: http://rubygems.org/

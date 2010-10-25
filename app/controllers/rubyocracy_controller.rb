@@ -1,7 +1,7 @@
 class RubyocracyController < ApplicationController
 
   def index
-    @stories = Story.ordered.paginate :page => params[:page], :include => :site, :per_page => 20
+    @stories = Story.ordered.paginate :page => params[:page], :include => [:site, :categories], :per_page => 20
     respond_to do |format|  
       format.html { render 'stories/index' }
       format.xml  { render :xml => @stories }  

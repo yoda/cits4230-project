@@ -8,6 +8,11 @@
     .story-preview= linked_screenshot story
     .story-nested-details
       .story-summary= (defined?(full) && full) ? story.content.html_safe : abstract_for(story)
+      .story-categories
+        %ul
+          %li.prefix Categories:
+          - story.categories.each do |c|
+            %li= link_to c, '#', :class => 'story-category'
       .story-meta-container
         %p.story-meta
           Posted on

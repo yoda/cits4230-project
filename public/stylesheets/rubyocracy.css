@@ -601,3 +601,34 @@ h3 {
   color: #000;
   font-weight: bold;
 }
+
+.story-categories {
+  padding: 0.5em 0 1em;
+}
+
+.story-categories ul li {
+  list-style: none;
+  display: inline;
+  margin-right: 0.25em;
+}
+
+.story-categories ul li.prefix {
+  font-weight: bold;
+}
+
+.story-categories ul li a.story-category {
+  border: 0.1em solid #AAA;
+  font-size: 0.8em;
+  background: #F9F9F9;
+  padding: 0.2em 0.35em;
+  border-radius: 0.25em;
+  -webkit-border-radius: 0.25em;
+  -moz-border-radius: 0.25em;
+  font-weight: bold;
+}
+
+.story-categories ul li a.story-category:hover {
+  background: #333;
+  border-color: #000;
+  color: #FFF;
+}
