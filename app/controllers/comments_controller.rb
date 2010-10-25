@@ -4,6 +4,7 @@ class CommentsController < ApplicationController
   before_filter :authenticate_user!
 
   def create
+    @page_title = "Add a comment"
     @comment      = @story.comments.build(params[:comment]) 
     @comment.user = current_user
     if @comment.save

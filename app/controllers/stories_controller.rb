@@ -5,6 +5,7 @@ class StoriesController < ApplicationController
   before_filter :prepare_story
 
   def show
+    @page_title = 'Story'
     @story_comments = @story.comments.paginate( :page => params[:page], :per_page => 10)
   end
   

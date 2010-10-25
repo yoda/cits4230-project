@@ -1,6 +1,7 @@
 class RubyocracyController < ApplicationController
 
   def index
+    @page_title = 'Rubyocracy'
     @stories = Story.ordered.paginate :page => params[:page], :include => [:site, :categories], :per_page => 20
     respond_to do |format|  
       format.html { render 'stories/index' }
@@ -10,6 +11,7 @@ class RubyocracyController < ApplicationController
 end
 
 def trending
+  @page_title = 'Trending Stories'
   render 'stories/trending_stories'
 end
 
