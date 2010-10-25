@@ -44,6 +44,11 @@ class Story < ActiveRecord::Base
     Nokogiri::HTML(content.to_s).text.strip
   end
   
+  def self.popular_keywords_from(scope, max = 10)
+    counts = scope.tag_counts_on :categories
+    counts.sort_by(&:count).reverse[0, max].map(&:name)
+  end
+  
   protected
   
   def normalize_html(html)

@@ -6,3 +6,4 @@ tmp/*
 coverage.data
 coverage/*
 *.orig
+index
