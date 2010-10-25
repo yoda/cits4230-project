@@ -12,6 +12,7 @@
   %ul#header-secondary-navigation
     %li= link_to 'Latest Posts', root_path
     %li= 'Trending Posts'
-    %li= link_to 'Your Favourite Posts', './favourites.html'
+    -if user_signed_in?
+      %li= link_to 'Your Favourite Posts', list_favorites_by_user_path(current_user)
     %li= link_to 'Submit a Blog', new_site_path
   
