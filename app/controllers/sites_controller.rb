@@ -14,6 +14,7 @@ class SitesController < ApplicationController
   end
   
   def create
+    @page_title = 'Add a new site'
     @site = Site.new(params[:site])
     @site.owner = current_user if @site.self_authored?
     if @site.save
@@ -24,7 +25,7 @@ class SitesController < ApplicationController
   end
   
   def show
-    @page_title = 'Site'
+    @page_title = "Viewing Site: #{@site.namesi}"
     @stories = @site.stories.paginate(:page => params[:page], :per_page => 25)
   end
   

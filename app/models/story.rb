@@ -16,6 +16,8 @@ class Story < ActiveRecord::Base
 
   acts_as_taggable_on :categories
 
+  acts_as_indexed :fields => [:normalized_content]
+
   before_save :generate_abstract
   before_save :generate_categories
 
@@ -36,6 +38,10 @@ class Story < ActiveRecord::Base
     else
       write_attribute :content, normalize_html(value)
     end
+  end
+  
+  def normalized_content
+    Nokogiri::HTML(content.to_s).text.strip
   end
   
   protected
